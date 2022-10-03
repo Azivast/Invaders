@@ -5,42 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/TODO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/fonts/kenvector_future.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/fonts/kenvector_future_thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_laser1.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_laser2.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_lose.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_shieldDown.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_shieldUp.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_twoTone.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/sounds/sfx_zap.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/darkPurple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/sheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/AssetManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/BulletManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/EnemyShip.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/EventManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/Explosion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/explosion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Invaders.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Invaders.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/sheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/assets/textures/spriteSheet.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3bb42fd38bd8407b9667fbf8ce1367e98f5388/a2/5a010197/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cfee9bd5d581618cf5c5818b3594a56824bb9bd/Sprite.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FcRfMzskaQAlYt9S5cTtJCndIA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -75,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664789489758</updated>
-      <workItem from="1664789496626" duration="4308000" />
+      <workItem from="1664789496626" duration="4572000" />
+      <workItem from="1664796144234" duration="27593000" />
     </task>
     <servers />
   </component>
@@ -94,5 +99,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#Invaders.Entity" memberName="IsDead" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

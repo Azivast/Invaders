@@ -8,11 +8,12 @@ namespace Invaders
 {
     class Program
     {
+        public static FloatRect ViewSize = new FloatRect(0, 0, 400, 800);
         static void Main(string[] args)
         {
             using (var window = new RenderWindow(new VideoMode(400, 800), "Invaders"))
             {
-                window.SetView(new View(new FloatRect(0, 0 , 400, 800)));
+                window.SetView(new View(ViewSize));
                 window.Closed += (o, e) => window.Close();
                 
                 // TODO: Initialize

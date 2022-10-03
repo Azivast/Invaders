@@ -1,49 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using SFML.Graphics;
+using SFML.System;
 
 namespace Invaders
 {
     public class SceneManager
     {
-        private const Scenes StartingScene = Scenes.Game;
         // TODO: Maybe use a list instead?
-        public enum Scenes
-        {
-            MainMenu,
-            Game,
-            HighScore,
-            Quit
-        }
-        private Scenes currentScene;
-        
+        public readonly Dictionary<string, Scene> Scenes;
+        private Scene currentScene;
+
         // Constructor
         public SceneManager()
         {
-            currentScene = StartingScene;
+            Scenes = new Dictionary<string, Scene>()
+            {
+                {"MainMenu", new Scene()},
+                {"Game", new Scene()},
+                {"HighScore", new Scene()},
+                {"Quit", new Scene()},
+            };
+            
+            
+            Scenes.TryGetValue("Game", out currentScene); // Set current scene to game
+            // Spawn stuff
+            PlayerShip playerShip = new PlayerShip();
+            playerShip.Position = new Vector2f(100, 500);
+            currentScene.Spawn(playerShip);
         }
         
         // Update
+        int i = 1; // DEBUG
         public void Update(float deltaTime)
         {
-            switch (currentScene)
+            currentScene.UpdateAll(deltaTime);
+            // DEBUG: Spawn some enemies
+            
+            if (i == 1)
             {
-                case Scenes.Game:
-                    break;
-                default:
-                    throw new Exception($"scene '{currentScene}' does not exist.");
+                EnemyShip enemy = new EnemyShip();
+                currentScene.Spawn(enemy);
             }
+            i++;
+            if (i == 100000) i = 1;
         }
         
         //Draw
         public void Render(RenderTarget target)
         {
-            switch (currentScene)
-            {
-                case Scenes.Game:
-                    break;
-                default:
-                    throw new Exception($"scene '{currentScene}' does not exist.");
-            }
+            currentScene.RenderAll(target);
         }
     }
 }

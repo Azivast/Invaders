@@ -8,7 +8,7 @@ namespace Invaders
     {
         private string textureName = "";
         protected Sprite sprite;
-        public bool IsDead;
+        public bool IsDead = false;
 
         public Vector2f Position
         {
@@ -26,18 +26,18 @@ namespace Invaders
 
         public virtual void Create(Scene scene)
         {
-            //sprite.Texture = scene.Assets.LoadTexture(textureName);
+            sprite.Texture = scene.Assets.LoadTexture(textureName);
         }
         
         public virtual void Destroy(Scene scene) {} // Implemented by children.
         
-        protected virtual void CollideWith(Scene scene, Entity other) {} // Implemented by children.
+        protected virtual void CollideWithEntity(Scene scene, Entity other) {} // Implemented by children.
 
         public virtual void Update(Scene scene, float deltaTime)
         {
             foreach (Entity found in scene.FindIntersects(Bounds))
             {
-                CollideWith(scene, found);
+                CollideWithEntity(scene, found);
             }
         }
 

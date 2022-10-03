@@ -11,8 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="assets/*"/>
-        <EmbeddedResource Include="assets/*">
+        <None Remove="assets/textures/*.png" />
+        <EmbeddedResource Include="assets/textures/*.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
     </ItemGroup>

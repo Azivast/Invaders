@@ -6,12 +6,14 @@ namespace Invaders
     public class Scene
     {
         private readonly List<Entity> entities;
-        // public readonly AssetManger Assets;
-        // public readonly EventManager Events;
+        public readonly AssetManager Assets;
+        public readonly EventManager Events;
 
         public Scene()
         {
             entities = new List<Entity>();
+            Assets = new AssetManager();
+            Events = new EventManager();
         }
 
         public void Spawn(Entity entity)
@@ -30,10 +32,9 @@ namespace Invaders
             }
 
             // Remove all dead entities
-            for (int i = 0; i < entities.Count; i++)
+            for (int i = entities.Count - 1; i >= 0; i--)
             {
                 if (entities[i].IsDead) entities.RemoveAt(i);
-                else i++; // else => prevents skipping when [i+1] when removing [i]. 
             }
         }
 
@@ -59,6 +60,30 @@ namespace Invaders
             }
             found = default(T);
             return false;
+        }
+        
+        public IEnumerable<Entity> FindIntersects(FloatRect bounds) 
+        {
+            int lastEntity = entities.Count - 1;
+            for (int i = lastEntity; i >= 0; i--) // Iterates backwards so as to not break loop when removing entries.
+            {
+                Entity entity = entities[i];
+                if (entity.IsDead) continue;
+                if (entity.Bounds.Intersects(bounds)) 
+                {
+                    yield return entity;
+                }
+            }
+        }
+        
+        // Loop backwards through entities and remove them
+        public void Clear()
+        {
+            for (int i = entities.Count - 1; i >= 0; i--) {
+                Entity entity = entities[i];
+                entities.RemoveAt(i);
+                entity.Destroy(this);
+            }
         }
     }
 }
