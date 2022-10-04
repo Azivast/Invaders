@@ -8,12 +8,14 @@ namespace Invaders
         private readonly List<Entity> entities;
         public readonly AssetManager Assets;
         public readonly EventManager Events;
+        private Stats gui;
 
         public Scene()
         {
             entities = new List<Entity>();
             Assets = new AssetManager();
             Events = new EventManager();
+            gui = new Stats(this);
         }
 
         public void Spawn(Entity entity)
@@ -36,6 +38,9 @@ namespace Invaders
             {
                 if (entities[i].IsDead) entities.RemoveAt(i);
             }
+            
+            Events.Update(this);
+            gui.Update();
         }
 
         public void RenderAll(RenderTarget target)
@@ -44,6 +49,9 @@ namespace Invaders
             {
                 entity.Render(target);
             }
+            
+            // Draw GUI above everything else
+            gui.Render(target);
         }
         
         /// Search for entities of type T.

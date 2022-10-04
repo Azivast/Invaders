@@ -37,19 +37,18 @@ namespace Invaders
         }
 
         
-        protected override void CollideWithWall()
+        protected override void Move(float deltaTime)
         {
             // Mirror X direction when hitting a wall
-            if (Bounds.Left <= Program.ViewSize.Left
-                || Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
-            {
+            if (Bounds.Left <= Program.ViewSize.Left || Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
                 facing.X = -facing.X;
-            }
+            
             // Teleport to top of screen if at bottom 
             if (Position.Y >= Program.ViewSize.Height)
-            {
                 Position = new Vector2f(Position.X, Program.ViewSize.Top);
-            }
+            
+            // Move
+            Position += facing * Speed * deltaTime;
         }
         
         protected override void CollideWithEntity(Scene scene, Entity e)
@@ -62,16 +61,15 @@ namespace Invaders
 
         public override void Update(Scene scene, float deltaTime)
         {
-            CollideWithWall();
-            Position += facing * Speed * deltaTime;
+            // Move
+            Move(deltaTime);
+            
+            // Rotate
             float newRotation = MathF.Atan2(-facing.X, facing.Y) * 180 / MathF.PI; // Rotation as degrees
             sprite.Rotation = newRotation; // rotate sprite in direction
             
             // Shoot
-            if (random.NextDouble() <= FiringFrequency )
-            {
-                TryShoot(scene);
-            }
+            if (random.NextDouble() <= FiringFrequency ) TryShoot(scene);
 
             base.Update(scene, deltaTime);
         }

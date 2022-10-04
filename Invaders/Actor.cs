@@ -33,9 +33,8 @@ namespace Invaders
             bullet.Create(Position, facing, scene);
             scene.Spawn(bullet);
         }
-
-        protected virtual void CollideWithWall() {}
-
+        
+        protected virtual void Move(float deltaTime) {}
 
         public override void Update(Scene scene, float deltaTime)
         {

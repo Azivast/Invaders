@@ -21,7 +21,7 @@ namespace Invaders
         
         public Texture LoadTexture(string name)
         {
-            // Return texture its already loaded.
+            // Return texture if it's already loaded.
             if (textures.TryGetValue(name, out Texture found)) 
                 return found;
 
@@ -36,13 +36,13 @@ namespace Invaders
 
         public Font LoadFont(string pixelFont)
         {
-            // Return font its already loaded.
+            // Return font if it's already loaded.
             if (fonts.TryGetValue(pixelFont, out Font found)) 
                 return found;
 
             
             // Otherwise load it and return.
-            string fileName = $"assets/fonts/{pixelFont}.png";
+            string fileName = $"assets/fonts/{pixelFont}.ttf";
             Font font = new Font(fileName);
             fonts.Add(pixelFont, font);
 

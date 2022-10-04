@@ -9,10 +9,13 @@ namespace Invaders
 {
     public class PlayerShip : Actor
     {
-        private const int Speed = 100;
-        private const float ImmortalTime = 100;
+        private const int Speed = 150;
+        public readonly int MaxHealth = 4;
+        private const float ImmortalTime = 3;
         private float immortalTimer = 0;
-        private int Health = 3;
+        private int health;
+        public bool IsMortal => immortalTimer <= 0;
+        public int Health => health;
 
         public PlayerShip() : base("spriteSheet")
         {
@@ -20,18 +23,26 @@ namespace Invaders
 
         public override void Create(Scene scene)
         {
-            sprite.TextureRect = new IntRect(224, 832, 99, 75);
+            sprite.TextureRect = new IntRect(212, 941, 98, 83);
             facing = new Vector2f(0, -1);
+            health = MaxHealth;
             base.Create(scene);
+            
+            // Subscribe to events
+            scene.Events.LoseHealth += OnLoseHealth;
         }
         
         private void OnLoseHealth(Scene scene, int amount) 
         {
-            if (immortalTimer <= 0)
+            if (IsMortal)
             {
-                Health -= amount;
+                health -= amount;
+                if (health <= 0)
+                {
+                    scene.Clear();
+                    // TODO: Move to highscore when game has been lost
+                }
                 immortalTimer = ImmortalTime;
-                Console.WriteLine("hit player");
                 scene.Spawn(new Explosion(Position));
             }
         }
@@ -55,8 +66,15 @@ namespace Invaders
 
         public override void Update(Scene scene, float deltaTime)
         {
-            immortalTimer--;
-            
+            immortalTimer = Math.Max(immortalTimer -= deltaTime, 0);
+            Move(deltaTime);
+            if (Keyboard.IsKeyPressed(Space)) TryShoot(scene);
+            base.Update(scene, deltaTime);
+        }
+        
+        protected override void Move(float deltaTime)
+        {
+            // Get input
             Vector2f movement = new Vector2f();
             if (Keyboard.IsKeyPressed(Left))
             {
@@ -74,19 +92,32 @@ namespace Invaders
             {
                 movement += new Vector2f(0, 1);
             }
+            
+            // Limit movement to within program window
+            Vector2f newPos = Position + movement * Speed * deltaTime;
+            newPos.X = Math.Clamp
+            (
+                newPos.X, 
+                Program.ViewSize.Left + Bounds.Width/2,
+                Program.ViewSize.Left + Program.ViewSize.Width - Bounds.Width/2
+            );
+            
+            newPos.Y = Math.Clamp
+            (
+                newPos.Y, 
+                Program.ViewSize.Top + Bounds.Height/2, 
+                Program.ViewSize.Top + Program.ViewSize.Height - Bounds.Height/2
+            );
 
-            Position += movement * Speed * deltaTime;
-
-            if (Keyboard.IsKeyPressed(Space))
-            {
-                TryShoot(scene);
-            }
-
-            base.Update(scene, deltaTime);
+            
+            // Move ship
+            Position = newPos;
         }
 
         public override void Render(RenderTarget target)
         {
+            if (IsMortal) sprite.Color = Color.White;
+            else sprite.Color = new Color(255, 255, 255,  100);
             base.Render(target);
         }
     }

@@ -29,22 +29,17 @@ namespace Invaders
             PlayerShip playerShip = new PlayerShip();
             playerShip.Position = new Vector2f(100, 500);
             currentScene.Spawn(playerShip);
+            
+            // DEBUG: Spawn some enemies
+            EnemyShip enemy = new EnemyShip();
+            currentScene.Spawn(enemy);
         }
         
         // Update
-        int i = 1; // DEBUG
         public void Update(float deltaTime)
         {
             currentScene.UpdateAll(deltaTime);
-            // DEBUG: Spawn some enemies
             
-            if (i == 1)
-            {
-                EnemyShip enemy = new EnemyShip();
-                currentScene.Spawn(enemy);
-            }
-            i++;
-            if (i == 100000) i = 1;
         }
         
         //Draw

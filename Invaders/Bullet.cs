@@ -9,10 +9,7 @@ namespace Invaders
         private Vector2f direction;
         private const float Speed = 250;
         private Actor parent;
-        public Actor Parent
-        {
-            get => parent;
-        }
+        public Actor Parent => parent;
 
         public Bullet(Actor parent) : base("spriteSheet")
         {
