@@ -4,13 +4,11 @@
     <projectFile>Invaders/Invaders.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/debug.log" afterDir="false" />
+    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Couple stats class with playership.">
+      <change afterPath="$PROJECT_DIR$/Invaders/Menu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +26,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "discord-project",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Invaders" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -71,8 +70,17 @@
       <workItem from="1664910674657" duration="130000" />
       <workItem from="1664910935040" duration="12899000" />
       <workItem from="1665416385960" duration="215000" />
-      <workItem from="1665416792634" duration="1513000" />
+      <workItem from="1665416792634" duration="3014000" />
+      <workItem from="1665419862704" duration="1128000" />
     </task>
+    <task id="LOCAL-00001" summary="Couple stats class with playership.">
+      <created>1665418453421</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665418453421</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +101,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Couple stats class with playership." />
+    <option name="LAST_COMMIT_MESSAGE" value="Couple stats class with playership." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
