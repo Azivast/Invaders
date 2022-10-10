@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Invaders/MainMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/AssetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/AssetManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/BulletManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/EnemyShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemyShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Invaders.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Invaders.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +69,9 @@
       <workItem from="1664796144234" duration="27593000" />
       <workItem from="1664910552609" duration="101000" />
       <workItem from="1664910674657" duration="130000" />
-      <workItem from="1664910935040" duration="12402000" />
+      <workItem from="1664910935040" duration="12899000" />
+      <workItem from="1665416385960" duration="215000" />
+      <workItem from="1665416792634" duration="1513000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,7 @@ using SFML.System;
 
 namespace Invaders
 {
-    public class Actor : Entity
+    public abstract class Actor : Entity
     {
         protected virtual float ShootCooldown { get; } = 2; // property so that it can be overriden in children
         public bool ReadyToShoot;

@@ -14,7 +14,7 @@ namespace Invaders
         private Sprite heart = new Sprite();
         private PlayerShip playerShip;
 
-        public Stats(Scene scene, PlayerShip playerShip)
+        public Stats(Scene scene)
         {
             this.playerShip = playerShip;
             
@@ -24,16 +24,19 @@ namespace Invaders
             heart.Scale = new Vector2f(0.5f, 0.5f);
 
             scoreText.Font = scene.Assets.LoadFont(Font);
+            scoreText.DisplayedString = $"Score: {score}";
             scoreText.CharacterSize = 72;
             scoreText.Scale = new Vector2f(0.5f, 0.5f);
             scoreText.Position = new Vector2f
             (
                 Program.ViewSize.Left+10,
-                Program.ViewSize.Top + Program.ViewSize.Height - 100
+                Program.ViewSize.Top + Program.ViewSize.Height - scoreText.GetGlobalBounds().Height*2
             );
 
             clock.Restart();
         }
+
+        public void LoadPlayerShip(PlayerShip playerShip) => this.playerShip = playerShip;
 
         public void Update()
         {
@@ -54,7 +57,7 @@ namespace Invaders
                 target.Draw(heart);
                 heart.Position += new Vector2f(heart.GetGlobalBounds().Width, 0);
             }
-            scoreText.DisplayedString = $"Score: {score} \nHealth: {playerShip.Health}";
+            scoreText.DisplayedString = $"Score: {score}";
             target.Draw(scoreText);
         }
     }

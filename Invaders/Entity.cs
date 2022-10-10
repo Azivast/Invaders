@@ -4,7 +4,7 @@ using SFML.System;
 
 namespace Invaders
 {
-    public class Entity
+    public abstract class Entity
     {
         private string textureName = "";
         protected Sprite sprite;

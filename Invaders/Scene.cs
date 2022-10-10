@@ -8,7 +8,7 @@ namespace Invaders
         private readonly List<Entity> entities;
         public readonly AssetManager Assets;
         public readonly EventManager Events;
-        private Stats gui;
+        private readonly Stats gui;
 
         public Scene()
         {
@@ -22,6 +22,9 @@ namespace Invaders
         {
             entity.Create(this);
             entities.Add(entity);
+            
+            //TODO: Implement differently so that check wont run every time.
+            if (entity is PlayerShip ship) gui.LoadPlayerShip(ship);
         }
 
         public void UpdateAll(float deltaTime)
