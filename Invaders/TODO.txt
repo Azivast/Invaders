@@ -20,6 +20,8 @@ Scene Manager?
 Scene
 
 Sound
+
+Menu switching should be handled using events.
     
     
 

@@ -10,7 +10,7 @@ namespace Invaders
         protected Sprite sprite;
         public bool IsDead = false;
 
-        public Vector2f Position
+        public virtual Vector2f Position
         {
             get => sprite.Position;
             set => sprite.Position = value;

@@ -1,16 +1,22 @@
-﻿namespace Invaders
+﻿using System;
+
+namespace Invaders
 {
     public class EventManager
     {
         public delegate void ValueChangedEvent(Scene scene, int value);
+        public delegate void ChangeSceneEvent(string newScene); // TODO: Don't use strings
         
         public event ValueChangedEvent LoseHealth;
+        public event ChangeSceneEvent ChangeToScene;
 
         public int HealthLost;
         
         // Called from other classes:
         public void PublishLooseHealth(int amount) 
             => HealthLost += amount;
+        public void PublicChangeSceneEvent(string newScene) 
+            => ChangeToScene?.Invoke(newScene);
 
         public void Update(Scene scene)
         {

@@ -5,29 +5,27 @@ namespace Invaders
 {
     public class Scene
     {
-        private readonly List<Entity> entities;
+        protected readonly List<Entity> entities;
         public readonly AssetManager Assets;
-        public readonly EventManager Events;
-        private readonly Stats gui;
+        private SceneManager sceneManager;
 
-        public Scene()
+        public EventManager Events => sceneManager.Events;
+
+
+        public Scene(SceneManager sceneManager)
         {
             entities = new List<Entity>();
             Assets = new AssetManager();
-            Events = new EventManager();
-            gui = new Stats(this);
+            this.sceneManager = sceneManager;
         }
 
-        public void Spawn(Entity entity)
+        public virtual void Spawn(Entity entity)
         {
             entity.Create(this);
             entities.Add(entity);
-            
-            //TODO: Implement differently so that check wont run every time.
-            if (entity is PlayerShip ship) gui.LoadPlayerShip(ship);
         }
 
-        public void UpdateAll(float deltaTime)
+        public virtual void UpdateAll(float deltaTime)
         {
             // TODO: Better loops. Maybe use a queue and foreach?
             // Update all entities
@@ -43,18 +41,14 @@ namespace Invaders
             }
             
             Events.Update(this);
-            gui.Update();
         }
 
-        public void RenderAll(RenderTarget target)
+        public virtual void RenderAll(RenderTarget target)
         {
             foreach (Entity entity in entities)
             {
                 entity.Render(target);
             }
-            
-            // Draw GUI above everything else
-            gui.Render(target);
         }
         
         /// Search for entities of type T.

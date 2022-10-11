@@ -9,43 +9,59 @@ namespace Invaders
     public class SceneManager
     {
         // TODO: Maybe use a list instead?
-        public readonly Dictionary<string, Menu> Scenes;
-        private Menu currentScene;
+        public readonly Dictionary<string, Scene> Scenes;
+        private Scene currentScene;
+        public readonly EventManager Events;
+        public static RenderWindow Window;
 
         // Constructor
-        public SceneManager()
+        public SceneManager(RenderWindow window)
         {
-            Scenes = new Dictionary<string, Menu>()
+            Scenes = new Dictionary<string, Scene>()
             {
-                {"MainMenu", new MainMenu()},
-                {"Game", new MainMenu()},
-                {"HighScore", new MainMenu()},
-                {"Quit", new MainMenu()},
+                {"MainMenu", new MainMenu(this)},
+                {"GamePlay", new GamePlay(this)},
+                {"HighScore", new HighScore(this)},
             };
+            Scenes.TryGetValue("MainMenu", out currentScene); // Starting scene
+
+            Window = window;
+            Events = new EventManager();
+            Events.ChangeToScene += ChangeScene;
+
             
+            //Spawn stuff in game scene TODO: Nicer code
+            Scenes.TryGetValue("GamePlay", out Scene gamePlay);
+            PlayerShip playerShip = new PlayerShip();
+            playerShip.Position = new Vector2f(100, 500);
+            gamePlay.Spawn(playerShip);
             
-            Scenes.TryGetValue("MainMenu", out currentScene); // Set current scene to game
-            // Spawn stuff
-            // PlayerShip playerShip = new PlayerShip();
-            // playerShip.Position = new Vector2f(100, 500);
-            // currentScene.Spawn(playerShip);
-            //
-            // // DEBUG: Spawn some enemies
-            // EnemyShip enemy = new EnemyShip();
-            // currentScene.Spawn(enemy);
+            // DEBUG: Spawn some enemies
+            EnemyShip enemy = new EnemyShip();
+            gamePlay.Spawn(enemy);
+
+        }
+
+        private void ChangeScene(string scene)
+        {
+            if (scene.Equals("Quit")) 
+                Window.Close();
+            else
+                Scenes.TryGetValue(scene, out currentScene);
+            Console.WriteLine(scene);
+            Console.WriteLine(currentScene);
         }
         
         // Update
         public void Update(float deltaTime)
         {
-            currentScene.Update(deltaTime);
-            
+            currentScene.UpdateAll(deltaTime);
         }
         
         //Draw
         public void Render(RenderTarget target)
         {
-            currentScene.Render(target);
+            currentScene.RenderAll(target);
         }
     }
 }

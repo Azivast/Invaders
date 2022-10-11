@@ -7,20 +7,17 @@ using SFML.Window;
 
 namespace Invaders
 {
-    public class MainMenu : Scene
+    public class HighScore : Scene
     {
         private readonly List<Button> MenuEntries;
 
         private const int ButtonSpacing = 20;
         
-        public MainMenu(SceneManager sceneManager) : base(sceneManager)
+        public HighScore(SceneManager sceneManager) : base(sceneManager)
         {
             MenuEntries = new List<Button>
             {
-                new Button("Play", () => Events.PublicChangeSceneEvent("GamePlay")),
-                new Button("High Score", () => Events.PublicChangeSceneEvent("HighScore")),
-                new Button("Settings", () => Events.PublicChangeSceneEvent("GamePlay")),
-                new Button("Quit", () => Events.PublicChangeSceneEvent("HighScore")),
+                new Button("Back", () => Events.PublicChangeSceneEvent("MainMenu")),
             };
             
             

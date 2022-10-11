@@ -5,15 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Couple stats class with playership.">
-      <change afterPath="$PROJECT_DIR$/Invaders/Menu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/Button.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/GamePlay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/HighScore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/MouseCollision.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/UISheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/TODO.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e68fba52605f4eee88783890392bddfcf800/88/3b118548/FloatRect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f53885f4bac68f6cf55723ae7dc01bd6acfb6fe/Mouse.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -26,16 +41,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "discord-project",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;discord-project&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Invaders" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -72,6 +87,7 @@
       <workItem from="1665416385960" duration="215000" />
       <workItem from="1665416792634" duration="3014000" />
       <workItem from="1665419862704" duration="1128000" />
+      <workItem from="1665494414563" duration="10526000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>
