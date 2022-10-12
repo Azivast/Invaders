@@ -45,21 +45,19 @@ namespace Invaders
         public override void Update(Scene scene, float deltaTime)
         {
             base.Update(scene, deltaTime);
-            collideWithMouse(scene);
+            sprite.Color = Color.White;
+            CollideWithMouse(scene);
         }
         
-        private void collideWithMouse(Scene scene)
+        private void CollideWithMouse(Scene scene)
         {
+            if (!MouseCollision.HitBox.Intersects(Bounds)) return;
+            
             if (Mouse.IsButtonPressed(Mouse.Button.Left))
             {
-                foreach (Entity found in scene.FindIntersects(MouseCollision.HitBox))
-                {
-                    if (found is Button button)
-                    {
-                        clickAction();
-                    }
-                }
+                clickAction();
             }
+            else sprite.Color = Color.Cyan;
         }
 
         public override void Render(RenderTarget target)

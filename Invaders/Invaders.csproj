@@ -22,5 +22,11 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
     </ItemGroup>
+    <ItemGroup>
+        <None Remove="assets/*.txt" />
+        <EmbeddedResource Include="assets/*.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
 
 </Project>

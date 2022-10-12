@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using SFML.Graphics;
 using SFML.System;
 
@@ -12,10 +13,13 @@ namespace Invaders
         private float gameTime = 0;
         private Clock clock = new Clock();
         private Sprite heart = new Sprite();
-        private PlayerShip playerShip;
+        
+        private readonly PlayerShip playerShip;
+        private readonly Scene scene;
 
-        public Stats(Scene scene)
+        public Stats(PlayerShip playerShip, Scene scene)
         {
+            this.scene = scene;
             this.playerShip = playerShip;
             
             heart.Texture = scene.Assets.LoadTexture("spriteSheet");
@@ -34,13 +38,19 @@ namespace Invaders
             );
 
             clock.Restart();
+
+            scene.Events.GameOver += SendScore;
         }
 
-        public void LoadPlayerShip(PlayerShip playerShip) => this.playerShip = playerShip;
-
-        public void Update()
+        public void Update(EventManager events)
         {
             score = (int)clock.ElapsedTime.AsSeconds();
+        }
+
+        private void SendScore()
+        {
+            Debug.WriteLine("Stats.cs: Game over. Publishing HighScore Event");
+            scene.Events.PublishScoreEvent(score);
         }
 
         public void Render(RenderTarget target)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
 namespace Invaders
 {
@@ -17,29 +18,19 @@ namespace Invaders
         // Constructor
         public SceneManager(RenderWindow window)
         {
-            Scenes = new Dictionary<string, Scene>()
-            {
-                {"MainMenu", new MainMenu(this)},
-                {"GamePlay", new GamePlay(this)},
-                {"HighScore", new HighScore(this)},
-            };
-            Scenes.TryGetValue("MainMenu", out currentScene); // Starting scene
-
             Window = window;
             Events = new EventManager();
             Events.ChangeToScene += ChangeScene;
-
             
-            //Spawn stuff in game scene TODO: Nicer code
-            Scenes.TryGetValue("GamePlay", out Scene gamePlay);
-            PlayerShip playerShip = new PlayerShip();
-            playerShip.Position = new Vector2f(100, 500);
-            gamePlay.Spawn(playerShip);
-            
-            // DEBUG: Spawn some enemies
-            EnemyShip enemy = new EnemyShip();
-            gamePlay.Spawn(enemy);
-
+            Scenes = new Dictionary<string, Scene>()
+            {
+                {"MainMenu", new MainMenu(this)},
+                {"NameInput", new NameInput(this, window)},
+                {"GamePlay", new GamePlay(this)},
+                {"GameOver", new GameOver(this)},
+                {"HighScore", new HighScore(this)},
+            };
+            Scenes.TryGetValue("MainMenu", out currentScene); // Starting scene
         }
 
         private void ChangeScene(string scene)

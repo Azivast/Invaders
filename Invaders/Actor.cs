@@ -19,7 +19,6 @@ namespace Invaders
         {
             base.Create(scene);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width/2, sprite.TextureRect.Height / 2);
-            Console.WriteLine(sprite.TextureRect.Width/2);
         }
 
         protected virtual void TryShoot(Scene scene)

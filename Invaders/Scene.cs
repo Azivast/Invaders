@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using SFML.Graphics;
+using SFML.System;
 
 namespace Invaders
 {
-    public class Scene
+    public abstract class Scene
     {
         protected readonly List<Entity> entities;
         public readonly AssetManager Assets;
@@ -50,7 +51,7 @@ namespace Invaders
                 entity.Render(target);
             }
         }
-        
+
         /// Search for entities of type T.
         /// Returns true if found and out 'found' as the entity.
         /// Code copied from the pacman tutorial for previous assignment. 
