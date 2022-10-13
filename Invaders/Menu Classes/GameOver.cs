@@ -9,55 +9,48 @@ using SFML.Window;
 
 namespace Invaders
 {
-    public class GameOver : Scene
+    public class GameOver : Menu
     {
-        private readonly List<Button> MenuEntries;
-        private const string Font = "kenvector_future";
         private readonly string file = $"assets/highscore.txt";
         
         private int storedScore;
         private int currentScore;
-        private Text highScoreText = new Text();
-        private Text nameText = new Text();
-        
+        private string playerName;
+
         public GameOver(SceneManager sceneManager) : base(sceneManager)
         {
-            
-            highScoreText.Font = Assets.LoadFont(Font);
-            highScoreText.CharacterSize = 72;
-            highScoreText.Scale = new Vector2f(0.3f, 0.3f);
-            highScoreText.FillColor = Color.White;
-            
-            nameText.Font = Assets.LoadFont(Font);
-            nameText.CharacterSize = 72;
-            nameText.Scale = new Vector2f(0.3f, 0.3f);
-            nameText.FillColor = Color.White;
-
             // Setup button
-            Button button = new Button("Continue", () => Events.PublishChangeSceneEvent("HighScore"));
-            button.Create(this);
-            button.Position = new( // Set spacing
-                Program.ViewSize.Width / 2,
-                100 + (button.Bounds.Height)
-                );
-            entities.Add(button);
+            MenuPosition = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
+            AddButton(new Button("Continue", () => Events.PublishChangeScene("HighScore")));
 
-                // Events
-            Events.ScoreBroadcast += GetScore;
+            // Events
+            Events.NewScore += GetScore;
         }
 
-        private void GetScore(Scene _, int score)
+        private void GetScore(Scene _, int score , string name)
         {
             currentScore = score;
+            playerName = name;
         }
         
         public override void RenderAll(RenderTarget target)
         {
             base.RenderAll(target);
 
-            highScoreText.DisplayedString = $"Total Score: {currentScore}";
-            nameText.DisplayedString = $"Total Score: blablahtest";
-            target.Draw(highScoreText);
+            target.Draw(DrawText(
+                $"Total Score: {currentScore}", 
+                text, 
+                new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
+                "middle",
+                -50
+                ));
+            target.Draw(DrawText(
+                $"Name: {playerName}", 
+                text, 
+                new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
+                "middle",
+                50
+            ));
         }
     }
 }

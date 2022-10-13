@@ -54,6 +54,7 @@ namespace Invaders
                     text.Origin = new Vector2f(text.GetLocalBounds().Width, 0);
                     break;
                 case "middle":
+                case "center":
                     text.Origin = new Vector2f(text.GetLocalBounds().Width/2, 0);
                     break;
             }

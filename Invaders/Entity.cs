@@ -23,6 +23,11 @@ namespace Invaders
             this.textureName = textureName;
             sprite = new Sprite();
         }
+        protected Entity() // Entities with no need for sprite receive a blank texture
+        {
+            this.textureName = "blank";
+            sprite = new Sprite();
+        }
 
         public virtual void Create(Scene scene)
         {

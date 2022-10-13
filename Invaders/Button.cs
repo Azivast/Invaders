@@ -13,7 +13,7 @@ namespace Invaders
         private const string Font = "kenvector_future";
         private Text text = new Text();
         private Action clickAction;
-        
+
         public virtual Vector2f Position
         {
             get { return sprite.Position; }
@@ -51,9 +51,9 @@ namespace Invaders
         
         private void CollideWithMouse(Scene scene)
         {
-            if (!MouseCollision.HitBox.Intersects(Bounds)) return;
+            if (!MouseHelper.MouseHitBox.Intersects(Bounds)) return;
             
-            if (Mouse.IsButtonPressed(Mouse.Button.Left))
+            if (MouseHelper.MouseJustPressed)
             {
                 clickAction();
             }

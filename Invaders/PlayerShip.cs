@@ -10,7 +10,7 @@ namespace Invaders
     public class PlayerShip : Actor
     {
         private const int Speed = 150;
-        public readonly int MaxHealth = 1;
+        public readonly int MaxHealth = 3;
         private const float ImmortalTime = 3;
         private float immortalTimer = 0;
         private int health;
@@ -37,12 +37,16 @@ namespace Invaders
             if (IsMortal)
             {
                 health -= amount;
-                if (health <= 0)
+                if (health <= 0) // Dead
                 {
-                    scene.Events.PublishGameOverEvent();
+                    scene.Events.PublishGameOver();
+                    scene.Events.LoseHealth -= OnLoseHealth;
                 }
-                immortalTimer = ImmortalTime;
-                scene.Spawn(new Explosion(Position));
+                else
+                {
+                    immortalTimer = ImmortalTime;
+                    scene.Spawn(new Explosion(Position));
+                }
             }
         }
         

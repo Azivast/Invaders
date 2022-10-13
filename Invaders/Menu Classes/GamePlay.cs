@@ -17,29 +17,28 @@ namespace Invaders
 
             // Spawn Player
             PlayerShip playerShip = new PlayerShip();
-            playerShip.Position = new Vector2f(100, 500);
+            playerShip.Position = new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2);
             Spawn(playerShip); // TODO: Virtual member call in constructor
             
             // Create gui
             gui = new Stats(playerShip, this);
             
-            // DEBUG: Spawn some enemies
-            EnemyShip enemy = new EnemyShip();
-            Spawn(enemy);
+            // Add an enemy spawner
+            EnemySpawner spawner = new EnemySpawner();
+            spawner.Create(this);
+            entities.Add(spawner);
         }
         
         private void GameOver()
         {
             Clear();
-            Events.PublishChangeSceneEvent("GameOver");
+            Events.PublishChangeScene("GameOver");
         }
 
         public override void UpdateAll(float deltaTime)
         {
             base.UpdateAll(deltaTime);
             gui.Update(Events);
-            
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Escape)) Spawn(new EnemyShip()); // DEBUG
         }
 
         public override void RenderAll(RenderTarget target)

@@ -11,9 +11,9 @@ namespace Invaders
     {
         public MainMenu(SceneManager sceneManager) : base(sceneManager)
         {
-            AddButton(new Button("Play", () => Events.PublishChangeSceneEvent("NameInput")));
-            AddButton(new Button("High Score", () => Events.PublishChangeSceneEvent("HighScore")));
-            AddButton(new Button("Quit", () => Events.PublishChangeSceneEvent("Quit")));
+            AddButton(new Button("Play", () => Events.PublishChangeScene("NameInput")));
+            AddButton(new Button("High Score", () => Events.PublishChangeScene("HighScore")));
+            AddButton(new Button("Quit", () => Events.PublishChangeScene("Quit")));
         }
     }
 }

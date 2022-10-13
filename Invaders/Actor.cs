@@ -7,6 +7,7 @@ namespace Invaders
 {
     public abstract class Actor : Entity
     {
+        public float Speed = 200;
         protected virtual float ShootCooldown { get; } = 0.5f; // property so that it can be overriden in children
         public bool ReadyToShoot;
         protected float cooldownTimer;

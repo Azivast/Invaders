@@ -22,11 +22,11 @@ namespace Invaders
         {
             // Back Button
             MenuPosition = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
-            AddButton(new Button("Back", () => Events.PublishChangeSceneEvent("MainMenu")));
+            AddButton(new Button("Back", () => Events.PublishChangeScene("MainMenu")));
 
             // Events
             Events.ChangeToScene += OnLoad;
-            Events.ScoreBroadcast += OnScore;
+            Events.NewScore += OnScore;
         }
 
         private void OnLoad(string scene)
@@ -36,9 +36,9 @@ namespace Invaders
             data = LoadData(file);
         }
         
-        private void OnScore(Scene _, int score)
+        private void OnScore(Scene _, int score, string name)
         {
-            SaveAndSortHighScore(file, score, "IMPLEMENT NAME");
+            SaveAndSortHighScore(file, score, name);
         }
 
         public override void RenderAll(RenderTarget target)

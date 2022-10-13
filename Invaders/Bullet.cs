@@ -7,13 +7,14 @@ namespace Invaders
     public class Bullet : Entity
     {
         private Vector2f direction;
-        private const float Speed = 500;
+        private float speed = 200;
         private Actor parent;
         public Actor Parent => parent;
 
         public Bullet(Actor parent) : base("spriteSheet")
         {
             this.parent = parent;
+            this.speed += parent.Speed;
         }
 
         public void Create(Vector2f position, Vector2f direction, Scene scene) // no need for override since we are overloading
@@ -28,7 +29,7 @@ namespace Invaders
 
         public override void Update(Scene scene, float deltaTime)
         {
-            Position += direction * Speed * deltaTime;
+            Position += direction * speed * deltaTime;
 ;
             if (Position.Y < Program.ViewSize.Top - Bounds.Height)
                 IsDead = true;

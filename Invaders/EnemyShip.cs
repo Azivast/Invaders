@@ -9,12 +9,14 @@ namespace Invaders
 {
     public class EnemyShip : Actor
     {
-        private const int Speed = 100;
         private const double FiringFrequency = 0.0005f;
         protected override float ShootCooldown { get; } = 1.5f;
         private Random random;
 
-        public EnemyShip() : base("spriteSheet") {}
+        public EnemyShip(float speed) : base("spriteSheet")
+        {
+            Speed = speed;
+        }
 
         public override void Create(Scene scene)
         {
@@ -41,7 +43,18 @@ namespace Invaders
         {
             // Mirror X direction when hitting a wall
             if (Bounds.Left <= Program.ViewSize.Left || Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
-                facing.X = -facing.X;
+            {
+                Position = new Vector2f
+                    (
+                        Math.Clamp(
+                        Position.X, 
+                        Program.ViewSize.Left+1,
+                        Bounds.Left + Bounds.Width-1
+                    ),
+                    Position.Y
+                    );
+                facing.X *= -1;
+            }
             
             // Teleport to top of screen if at bottom 
             if (Position.Y >= Program.ViewSize.Height)

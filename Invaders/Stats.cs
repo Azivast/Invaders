@@ -8,6 +8,8 @@ namespace Invaders
     public class Stats
     {
         private const string Font = "kenvector_future";
+
+        private string playerName;
         private int score = 0;
         private Text scoreText = new Text();
         private float gameTime = 0;
@@ -16,6 +18,8 @@ namespace Invaders
         
         private readonly PlayerShip playerShip;
         private readonly Scene scene;
+        
+        public int Score => score;
 
         public Stats(PlayerShip playerShip, Scene scene)
         {
@@ -40,6 +44,7 @@ namespace Invaders
             clock.Restart();
 
             scene.Events.GameOver += SendScore;
+            scene.Events.NewName += UpdateName;
         }
 
         public void Update(EventManager events)
@@ -48,10 +53,11 @@ namespace Invaders
         }
 
         private void SendScore()
-        {
-            Debug.WriteLine("Stats.cs: Game over. Publishing HighScore Event");
-            scene.Events.PublishScoreEvent(score);
-        }
+            => scene.Events.PublishNewScore(score, playerName);
+
+        private void UpdateName(string name) 
+            => playerName = name;
+
 
         public void Render(RenderTarget target)
         {

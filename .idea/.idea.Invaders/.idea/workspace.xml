@@ -4,25 +4,25 @@
     <projectFile>Invaders/Invaders.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Begin work on menu system">
-      <change afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/Menu Classes/NameInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Invaders/ScoreIO.cs" afterDir="false" />
+    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Fix menus, high score, and begin work on name input.">
+      <change afterPath="$PROJECT_DIR$/Invaders/EnemySpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invaders/assets/textures/blank.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Button.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/EnemyShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemyShip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/GamePlay.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/HighScore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Invaders.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Invaders.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/NameInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/NameInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/MouseCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/MouseHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +33,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05d63644173a4317a7366897c774f7b38000/82/da6c88ba/TextEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e68fba52605f4eee88783890392bddfcf800/88/3b118548/FloatRect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/169b4d5145b01e3ef80c9d7293b5cd86e1cbc39/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/214683d227d2b096bdfe39fd79b0eac8116ebb62e9a83d53828c638edaa6f88/XmlSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e251d5bde8e8ac3e249215d28bc45ecca9b5a0/Texture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/52bc2cf76c8edd8fbf2f6123a5a6732293714dff556be412b6ea83ebf654c8/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85439f6eae98fa347ee1d64e1d66ef769eaa9e98ad0a848cca2f75fdead69/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f53885f4bac68f6cf55723ae7dc01bd6acfb6fe/Mouse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa60121f8597edda05ba1e79c874b7b6527c3a7a58eed18a5e6266beec5bea/FileStream.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Invaders/ScoreIO.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,17 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.37313432",
-    "settings.editor.selected.configurable": "discord-project",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.37313432&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;discord-project&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Invaders" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -98,7 +101,8 @@
       <workItem from="1665416792634" duration="3014000" />
       <workItem from="1665419862704" duration="1128000" />
       <workItem from="1665494414563" duration="10682000" />
-      <workItem from="1665567840453" duration="19408000" />
+      <workItem from="1665567840453" duration="19685000" />
+      <workItem from="1665660789359" duration="11122000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>
@@ -113,7 +117,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1665505091625</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Fix menus, high score, and begin work on name input.">
+      <created>1665587651753</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1665587651753</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +146,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Couple stats class with playership." />
     <MESSAGE value="Begin work on menu system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Begin work on menu system" />
+    <MESSAGE value="Fix menus, high score, and begin work on name input." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix menus, high score, and begin work on name input." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

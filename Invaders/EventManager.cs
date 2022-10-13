@@ -6,30 +6,37 @@ namespace Invaders
     public class EventManager
     {
         public delegate void ValueChangedEvent(Scene scene, int value);
+        public delegate void StringChangedEvent(string text);
+        public delegate void ScoreChangedEvent(Scene scene, int value, string playerName);
         public delegate void ChangeSceneEvent(string newScene);
         public delegate void GameOverEvent();
         
         public event ValueChangedEvent LoseHealth;
-        public event ValueChangedEvent ScoreBroadcast;
+        public event StringChangedEvent NewName;
+        public event ScoreChangedEvent NewScore;
         public event ChangeSceneEvent ChangeToScene;
         public event GameOverEvent GameOver;
 
         
         private int newScore;
+        private string newPlayerName;
         private int healthLost;
         
         // Called from other classes:
         public void PublishLooseHealth(int amount) 
             => healthLost += amount;
+        
+        public void PublishNewName(string playerName)
+            => NewName?.Invoke(playerName);
 
-        public void PublishScoreEvent(int newScore)
+        public void PublishNewScore(int newScore, string playerName)
         {
-            Debug.WriteLine($"Event: PublishHighScoreEvent called with score {newScore}");
             this.newScore = newScore;
+            newPlayerName = playerName;
         }
-        public void PublishChangeSceneEvent(string newScene)
+        public void PublishChangeScene(string newScene)
             => ChangeToScene?.Invoke(newScene);
-        public void PublishGameOverEvent()
+        public void PublishGameOver()
             => GameOver?.Invoke();
 
 
@@ -43,7 +50,7 @@ namespace Invaders
             }
             if (newScore != 0) 
             {
-                ScoreBroadcast?.Invoke(scene, newScore);
+                NewScore?.Invoke(scene, newScore, newPlayerName);
                 newScore = 0;
             }
         }

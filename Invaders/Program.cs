@@ -8,14 +8,14 @@ namespace Invaders
 {
     class Program
     {
-        public static FloatRect ViewSize = new FloatRect(0, 0, 600, 800);
+        public static FloatRect ViewSize = new FloatRect(0, 0, 800, 800);
         static void Main(string[] args)
         {
-            using (var window = new RenderWindow(new VideoMode(600, 800), "Invaders"))
+            using (var window = new RenderWindow(new VideoMode(800, 800), "Invaders"))
             {
                 window.SetView(new View(ViewSize));
                 window.Closed += (o, e) => window.Close();
-                MouseCollision.Window = window;
+                MouseHelper.Window = window;
 
                 // TODO: Initialize
                 Clock clock = new Clock();
@@ -26,10 +26,10 @@ namespace Invaders
                     window.DispatchEvents();
 
                     // Update
-                    float deltaTime = clock.Restart().AsSeconds();
-                    // TODO: Clamp delta to prevent collision clipping?
+                    float deltaTime = clock.Restart().AsSeconds(); // TODO: Clamp delta to prevent collision clipping?
+                    MouseHelper.Update();
                     sceneManager.Update(deltaTime);
-                    
+
                     // Draw
                     window.Clear(new Color(50, 50, 60));
                     sceneManager.Render(window);
