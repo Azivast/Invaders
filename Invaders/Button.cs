@@ -13,8 +13,25 @@ namespace Invaders
         private const string Font = "kenvector_future";
         private Text text = new Text();
         private Action clickAction;
+        private bool selected = false;
 
-        public virtual Vector2f Position
+        public bool Selected
+        {
+            get { return selected; }
+            set
+            {
+                selected = value;
+                sprite.Color = value ? Color.Cyan : Color.Red;
+            }
+        }
+
+        public Action Click
+        {
+            get { return clickAction; }
+            set { clickAction = value;  }
+        }
+
+        public override Vector2f Position
         {
             get { return sprite.Position; }
             set
@@ -28,9 +45,11 @@ namespace Invaders
             text.DisplayedString = buttonText;
             this.clickAction = clickAction;
         }
-        
-        public void Create(Scene scene)
+
+        public override void Create(Scene scene)
         {
+            base.Create(scene);
+            
             sprite.TextureRect = new IntRect(0, 0, 222, 39);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
@@ -40,24 +59,6 @@ namespace Invaders
             text.FillColor = Color.Black;
 
             base.Create(scene);
-        }
-
-        public override void Update(Scene scene, float deltaTime)
-        {
-            base.Update(scene, deltaTime);
-            sprite.Color = Color.White;
-            CollideWithMouse(scene);
-        }
-        
-        private void CollideWithMouse(Scene scene)
-        {
-            if (!MouseHelper.MouseHitBox.Intersects(Bounds)) return;
-            
-            if (MouseHelper.MouseJustPressed)
-            {
-                clickAction();
-            }
-            else sprite.Color = Color.Cyan;
         }
 
         public override void Render(RenderTarget target)

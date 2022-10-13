@@ -8,15 +8,14 @@ namespace Invaders
 {
     public abstract class Menu : Scene
     {
-        protected List<Button> MenuEntries = new List<Button>();
-        protected Vector2f MenuPosition;
         protected const string Font = "kenvector_future";
-        protected const int ButtonSpacing = 20;
+        protected ButtonList buttons;
         protected Text text;
 
-        public Menu(SceneManager sceneManager) : base(sceneManager)
+        public Menu(SceneManager sceneManager, RenderWindow window) : base(sceneManager)
         {
-            MenuPosition = new Vector2f(Program.ViewSize.Width / 2, 100);
+            buttons = new ButtonList();
+            buttons.Position = new Vector2f(Program.ViewSize.Width / 2, Program.ViewSize.Height/2 - 100);
             
             text = new Text
             {
@@ -28,17 +27,20 @@ namespace Invaders
             };
         }
 
-        protected virtual void AddButton(Button button)
+        public override void UpdateAll(float deltaTime)
         {
-            // Setup buttons
-            MenuEntries.Add(button);
-            button.Create(this);
-            button.Position = new( // Set spacing
-                MenuPosition.X,
-                MenuPosition.Y + (MenuEntries.IndexOf(button) * (button.Bounds.Height + ButtonSpacing))
-            );
+            buttons.Update();
+            base.UpdateAll(deltaTime);
+        }
 
-            entities.Add(button);
+        public override void LoadScene(RenderWindow window)
+        {
+            window.KeyReleased += buttons.OnKeyPressed;
+        }
+
+        public override void UnLoadScene(RenderWindow window)
+        {
+            window.KeyReleased -= buttons.OnKeyPressed;
         }
 
         // Used to draw and align multiple strings using the same Text variable.

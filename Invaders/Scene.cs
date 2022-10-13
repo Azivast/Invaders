@@ -38,9 +38,14 @@ namespace Invaders
             // Remove all dead entities
             for (int i = entities.Count - 1; i >= 0; i--)
             {
-                if (entities[i].IsDead) entities.RemoveAt(i);
+                if (entities[i].IsDead)
+                { 
+                    //Entity entity = entities[i];
+                    entities.RemoveAt(i);
+                    //entity.Destroy(this);
+                }
             }
-            
+
             Events.Update(this);
         }
 
@@ -91,5 +96,9 @@ namespace Invaders
                 entity.Destroy(this);
             }
         }
+
+        // Implemented by children. Used to subscribe and unsubscribe to input events
+        public virtual void LoadScene(RenderWindow window) {}  
+        public virtual void UnLoadScene(RenderWindow window) {} 
     }
 }

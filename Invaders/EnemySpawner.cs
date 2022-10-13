@@ -27,10 +27,9 @@ namespace Invaders
 
             spawnInterval = Math.Clamp(spawnInterval - deltaTime * 0.1f, SpawnIntervalMin, SpawnIntervalMax);
             float speed = (100 + clock.ElapsedTime.AsSeconds());
-            speed += speed * SpeedVariation * random.Next(-1, 1); // randomize speed a bit
+            speed += speed * SpeedVariation * (float)random.NextDouble(); // randomize speed a bit
             
             spawnTimer += deltaTime;
-            Console.WriteLine(spawnInterval + " " + speed);
             if (spawnTimer >= spawnInterval)
             {
                 scene.Spawn(new EnemyShip(speed));

@@ -9,14 +9,14 @@ namespace Invaders
         public static readonly string AssetPath = "assets";
         private readonly Dictionary<string, Texture> textures;
         private readonly Dictionary<string, Font> fonts;
-        private readonly Dictionary<string, Sound> sounds;
+        private readonly Dictionary<string, SoundBuffer> sounds;
 
 
         public AssetManager()
         {
             textures = new Dictionary<string, Texture>();
             fonts = new Dictionary<string, Font>();
-            sounds = new Dictionary<string, Sound>();
+            sounds = new Dictionary<string, SoundBuffer>();
         }
         
         public Texture LoadTexture(string name)
@@ -47,6 +47,21 @@ namespace Invaders
             fonts.Add(pixelFont, font);
 
             return font;
+        }
+        
+        public SoundBuffer LoadSoundBuffer(string sound)
+        {
+            // Return font if it's already loaded.
+            if (sounds.TryGetValue(sound, out SoundBuffer found)) 
+                return found;
+
+            
+            // Otherwise load it and return.
+            string fileName = $"assets/sounds/{sound}.ogg";
+            SoundBuffer buffer = new SoundBuffer(fileName);
+            sounds.Add(sound, buffer);
+
+            return buffer;
         }
     }
 }

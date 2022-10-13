@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using SFML.Graphics;
@@ -11,28 +12,59 @@ namespace Invaders
 {
     public class GameOver : Menu
     {
-        private readonly string file = $"assets/highscore.txt";
-        
-        private int storedScore;
+        private string input;
         private int currentScore;
-        private string playerName;
 
-        public GameOver(SceneManager sceneManager) : base(sceneManager)
+        public GameOver(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
         {
-            // Setup button
-            MenuPosition = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
-            AddButton(new Button("Continue", () => Events.PublishChangeScene("HighScore")));
-
-            // Events
+            // Continue Button
+            buttons.Position = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
+            buttons.AddButton(new Button("Continue", NextScene),this);
+            
             Events.NewScore += GetScore;
         }
 
-        private void GetScore(Scene _, int score , string name)
+        public override void LoadScene(RenderWindow window)
         {
-            currentScore = score;
-            playerName = name;
+            input = "";
+            window.TextEntered += TextEntered;
+            base.LoadScene(window);
         }
         
+        public override void UnLoadScene(RenderWindow window)
+        {
+            window.TextEntered -= TextEntered;
+            base.UnLoadScene(window);
+        }
+
+        private void GetScore(Scene _, int score)
+        {
+            currentScore = score;
+        }
+
+        private void NextScene()
+        {
+            Events.PublishFinalScore(currentScore, input.Trim());
+            Events.PublishChangeScene("HighScore");
+        }
+        
+        private void TextEntered(object s, EventArgs e)
+        {
+            if (e is not TextEventArgs eventArgs) return;
+            
+            if ((char.IsLetter(eventArgs.Unicode[0]) || char.IsNumber(eventArgs.Unicode[0])) && input.Length <= 16) // add if nr or letter
+                input += eventArgs.Unicode;
+
+            else if (eventArgs.Unicode.Equals("\b")) // remove if backspace
+            {
+                if (input.Length > 0)
+                {
+                    input = input.Remove(input.Length - 1);
+                }
+            }
+        }
+
+
         public override void RenderAll(RenderTarget target)
         {
             base.RenderAll(target);
@@ -42,14 +74,14 @@ namespace Invaders
                 text, 
                 new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
                 "middle",
-                -50
-                ));
+                -text.GetGlobalBounds().Height
+            ));
             target.Draw(DrawText(
-                $"Name: {playerName}", 
+                $"Name: {input}", 
                 text, 
                 new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
                 "middle",
-                50
+                +text.GetGlobalBounds().Height
             ));
         }
     }

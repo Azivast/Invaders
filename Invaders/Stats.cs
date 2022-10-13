@@ -8,8 +8,7 @@ namespace Invaders
     public class Stats
     {
         private const string Font = "kenvector_future";
-
-        private string playerName;
+        
         private int score = 0;
         private Text scoreText = new Text();
         private float gameTime = 0;
@@ -43,8 +42,7 @@ namespace Invaders
 
             clock.Restart();
 
-            scene.Events.GameOver += SendScore;
-            scene.Events.NewName += UpdateName;
+            scene.Events.GameOver += () => scene.Events.PublishNewScore(score);
         }
 
         public void Update(EventManager events)
@@ -52,11 +50,6 @@ namespace Invaders
             score = (int)clock.ElapsedTime.AsSeconds();
         }
 
-        private void SendScore()
-            => scene.Events.PublishNewScore(score, playerName);
-
-        private void UpdateName(string name) 
-            => playerName = name;
 
 
         public void Render(RenderTarget target)

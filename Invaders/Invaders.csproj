@@ -28,5 +28,11 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
     </ItemGroup>
+    <ItemGroup>
+        <None Remove="assets/sounds/*.ogg" />
+        <EmbeddedResource Include="assets/sounds/*.ogg">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
 
 </Project>

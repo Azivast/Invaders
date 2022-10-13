@@ -42,18 +42,13 @@ namespace Invaders
         protected override void Move(float deltaTime)
         {
             // Mirror X direction when hitting a wall
-            if (Bounds.Left <= Program.ViewSize.Left || Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
+            if (Bounds.Left <= Program.ViewSize.Left)
             {
-                Position = new Vector2f
-                    (
-                        Math.Clamp(
-                        Position.X, 
-                        Program.ViewSize.Left+1,
-                        Bounds.Left + Bounds.Width-1
-                    ),
-                    Position.Y
-                    );
-                facing.X *= -1;
+                facing.X = Math.Abs(facing.X);
+            }
+            else if (Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
+            {
+                facing.X = Math.Abs(facing.X)*-1;
             }
             
             // Teleport to top of screen if at bottom 

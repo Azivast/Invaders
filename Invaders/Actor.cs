@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SFML.Audio;
 using SFML.Graphics;
 using SFML.System;
 
@@ -11,6 +12,8 @@ namespace Invaders
         protected virtual float ShootCooldown { get; } = 0.5f; // property so that it can be overriden in children
         public bool ReadyToShoot;
         protected float cooldownTimer;
+        private SoundBuffer laserBuffer;
+        protected Sound laserSound;
         
         protected Vector2f facing;
         
@@ -20,6 +23,8 @@ namespace Invaders
         {
             base.Create(scene);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width/2, sprite.TextureRect.Height / 2);
+            laserBuffer = new SoundBuffer(scene.Assets.LoadSoundBuffer("sfx_laser1"));
+            laserSound = new Sound(laserBuffer);
         }
 
         protected virtual void TryShoot(Scene scene)
@@ -32,6 +37,7 @@ namespace Invaders
             Bullet bullet = new Bullet(this);
             bullet.Create(Position, facing, scene);
             scene.Spawn(bullet);
+            laserSound.Play(); 
         }
         
         protected virtual void Move(float deltaTime) {}

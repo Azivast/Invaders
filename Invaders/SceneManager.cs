@@ -9,7 +9,6 @@ namespace Invaders
 {
     public class SceneManager
     {
-        // TODO: Maybe use a list instead?
         public readonly Dictionary<string, Scene> Scenes;
         private Scene currentScene;
         public readonly EventManager Events;
@@ -24,23 +23,37 @@ namespace Invaders
             
             Scenes = new Dictionary<string, Scene>()
             {
-                {"MainMenu", new MainMenu(this)},
-                {"NameInput", new NameInput(this, window)},
+                {"MainMenu", new MainMenu(this, window)},
                 {"GamePlay", new GamePlay(this)},
-                {"GameOver", new GameOver(this)},
-                {"HighScore", new HighScore(this)},
+                {"GameOver", new GameOver(this, window)},
+                {"HighScore", new HighScore(this, window)},
             };
-            Scenes.TryGetValue("MainMenu", out currentScene); // Starting scene
+            ChangeScene("MainMenu");  // Starting scene
         }
 
         private void ChangeScene(string scene)
         {
+            Console.WriteLine("-----start-----");
+            Console.WriteLine(scene + " is the scene to change to \n");
             if (scene.Equals("Quit")) 
                 Window.Close();
             else
-                Scenes.TryGetValue(scene, out currentScene);
-            Console.WriteLine(scene);
-            Console.WriteLine(currentScene);
+            {
+                foreach (var item in Scenes)
+                {
+                    if (item.Key.Equals(scene))
+                    {
+                        item.Value.LoadScene(Window);
+                        Scenes.TryGetValue(scene, out currentScene);
+                    }
+                    else
+                    {
+                        item.Value.UnLoadScene(Window);
+                    }
+                }
+
+            }
+            Console.WriteLine("-----stop------");
         }
         
         // Update

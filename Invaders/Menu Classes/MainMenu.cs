@@ -9,11 +9,11 @@ namespace Invaders
 {
     public class MainMenu : Menu
     {
-        public MainMenu(SceneManager sceneManager) : base(sceneManager)
+        public MainMenu(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
         {
-            AddButton(new Button("Play", () => Events.PublishChangeScene("NameInput")));
-            AddButton(new Button("High Score", () => Events.PublishChangeScene("HighScore")));
-            AddButton(new Button("Quit", () => Events.PublishChangeScene("Quit")));
+            buttons.AddButton(new Button("Play", () => Events.PublishChangeScene("GamePlay")), this);
+            buttons.AddButton(new Button("High Score", () => Events.PublishChangeScene("HighScore")),this);
+            buttons.AddButton(new Button("Quit", () => Events.PublishChangeScene("Quit")),this);
         }
     }
 }

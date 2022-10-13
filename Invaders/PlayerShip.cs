@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Numerics;
+using Microsoft.Win32.SafeHandles;
+using SFML.Audio;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
@@ -10,16 +12,16 @@ namespace Invaders
     public class PlayerShip : Actor
     {
         private const int Speed = 150;
-        public readonly int MaxHealth = 3;
+        public readonly int MaxHealth = 1;
         private const float ImmortalTime = 3;
         private float immortalTimer = 0;
         private int health;
+
+        
         public bool IsMortal => immortalTimer <= 0;
         public int Health => health;
 
-        public PlayerShip() : base("spriteSheet")
-        {
-        }
+        public PlayerShip() : base("spriteSheet") { }
 
         public override void Create(Scene scene)
         {
@@ -27,7 +29,7 @@ namespace Invaders
             facing = new Vector2f(0, -1);
             health = MaxHealth;
             base.Create(scene);
-            
+
             // Subscribe to events
             scene.Events.LoseHealth += OnLoseHealth;
         }
@@ -37,10 +39,12 @@ namespace Invaders
             if (IsMortal)
             {
                 health -= amount;
-                if (health <= 0) // Dead
+                if (health <= 0)
                 {
-                    scene.Events.PublishGameOver();
                     scene.Events.LoseHealth -= OnLoseHealth;
+                    IsDead = true;
+                    scene.Events.PublishGameOver();
+                    Console.WriteLine("PLAYER DEAD");
                 }
                 else
                 {
@@ -50,6 +54,14 @@ namespace Invaders
             }
         }
         
+        
+
+        public override void Destroy(Scene scene)
+        {
+            scene.Events.LoseHealth -= OnLoseHealth;
+            base.Destroy(scene);
+        }
+
         protected override void TryShoot(Scene scene)
         {
             if (!ReadyToShoot) return;
@@ -65,6 +77,8 @@ namespace Invaders
             
             scene.Spawn(bullet1);
             scene.Spawn(bullet2);
+            
+            laserSound.Play(); 
         }
 
         public override void Update(Scene scene, float deltaTime)

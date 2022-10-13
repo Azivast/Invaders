@@ -18,26 +18,25 @@ namespace Invaders
         private readonly string file = $"assets/highscore.dat";
         private SaveData data = new SaveData(10);
 
-        public HighScore(SceneManager sceneManager) : base(sceneManager)
+        public HighScore(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
         {
             // Back Button
-            MenuPosition = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
-            AddButton(new Button("Back", () => Events.PublishChangeScene("MainMenu")));
+            buttons.Position = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
+            buttons.AddButton(new Button("Back", () => Events.PublishChangeScene("MainMenu")), this);
 
             // Events
-            Events.ChangeToScene += OnLoad;
-            Events.NewScore += OnScore;
+            Events.NewName += OnName;
         }
-
-        private void OnLoad(string scene)
+        
+        public override void LoadScene(RenderWindow window)
         {
-            if (scene != "HighScore") return;
-            
+            base.LoadScene(window);
             data = LoadData(file);
         }
         
-        private void OnScore(Scene _, int score, string name)
+        private void OnName(int score, string name)
         {
+            Console.WriteLine(name);
             SaveAndSortHighScore(file, score, name);
         }
 
