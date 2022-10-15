@@ -13,6 +13,7 @@ namespace Invaders
         private Scene currentScene;
         public readonly EventManager Events;
         public static RenderWindow Window;
+        Background background;
 
         // Constructor
         public SceneManager(RenderWindow window)
@@ -20,6 +21,7 @@ namespace Invaders
             Window = window;
             Events = new EventManager();
             Events.ChangeToScene += ChangeScene;
+            background = new Background(window);
             
             Scenes = new Dictionary<string, Scene>()
             {
@@ -28,13 +30,12 @@ namespace Invaders
                 {"GameOver", new GameOver(this, window)},
                 {"HighScore", new HighScore(this, window)},
             };
-            ChangeScene("MainMenu");  // Starting scene
+            
+            ChangeScene("MainMenu");
         }
 
         private void ChangeScene(string scene)
         {
-            Console.WriteLine("-----start-----");
-            Console.WriteLine(scene + " is the scene to change to \n");
             if (scene.Equals("Quit")) 
                 Window.Close();
             else
@@ -53,18 +54,19 @@ namespace Invaders
                 }
 
             }
-            Console.WriteLine("-----stop------");
         }
         
         // Update
         public void Update(float deltaTime)
         {
             currentScene.UpdateAll(deltaTime);
+            background.Update(deltaTime);
         }
         
         //Draw
         public void Render(RenderTarget target)
         {
+            background.Render(target);
             currentScene.RenderAll(target);
         }
     }

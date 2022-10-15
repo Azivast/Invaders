@@ -48,6 +48,7 @@ namespace Invaders
         public void Update(EventManager events)
         {
             score = (int)clock.ElapsedTime.AsSeconds();
+            Background.IncreaseSpeed(score * 5); // Give the background a speed based on score
         }
 
 
