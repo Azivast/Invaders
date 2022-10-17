@@ -37,7 +37,7 @@ namespace Invaders
             this.direction = direction;
             sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // Rotation as degrees
             Position = position;
-            sprite.TextureRect = new IntRect(843, 62, 13, 54);
+            sprite.TextureRect = new IntRect(438, 16, 13, 54);
             hitBox = new FloatRect(0, 11, 13, 13);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
         }

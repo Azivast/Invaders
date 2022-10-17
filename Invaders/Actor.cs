@@ -36,6 +36,7 @@ namespace Invaders
         public override void Create(Scene scene)
         {
             base.Create(scene);
+            cooldownTimer = ShootCooldown;
             sprite.Origin = new Vector2f(sprite.TextureRect.Width/2, sprite.TextureRect.Height / 2);
             laserBuffer = new SoundBuffer(scene.Assets.LoadSoundBuffer("sfx_laser1"));
             laserSound = new Sound(laserBuffer);

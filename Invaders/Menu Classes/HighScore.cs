@@ -36,7 +36,6 @@ namespace Invaders
         
         private void OnName(int score, string name)
         {
-            Console.WriteLine(name);
             SaveAndSortHighScore(file, score, name);
         }
 

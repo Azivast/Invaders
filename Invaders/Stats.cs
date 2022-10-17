@@ -26,9 +26,9 @@ namespace Invaders
             this.playerShip = playerShip;
             
             heart.Texture = scene.Assets.LoadTexture("spriteSheet");
-            heart.TextureRect = new IntRect(212, 941, 98, 83);
+            heart.TextureRect = new IntRect(327, 0, 104, 82);
             heart.Rotation = 45;
-            heart.Scale = new Vector2f(0.5f, 0.5f);
+            heart.Scale = new Vector2f(0.4f, 0.4f);
 
             scoreText.Font = scene.Assets.LoadFont(Font);
             scoreText.DisplayedString = $"Score: {score}";
@@ -37,7 +37,7 @@ namespace Invaders
             scoreText.Position = new Vector2f
             (
                 Program.ViewSize.Left+10,
-                Program.ViewSize.Top + Program.ViewSize.Height - scoreText.GetGlobalBounds().Height*2
+                Program.ViewSize.Top
             );
 
             clock.Restart();
@@ -57,15 +57,15 @@ namespace Invaders
         {
             // Draw health
             heart.Position = new Vector2f(
-                Program.ViewSize.Left + heart.GetGlobalBounds().Width/2, 
+                Program.ViewSize.Width - heart.GetGlobalBounds().Width/2 - 10, 
                 Program.ViewSize.Top);
             for (int i = 0; i < playerShip.MaxHealth; i++) // Render all hearts
             {
                 heart.Color = i < playerShip.Health
                     ? Color.White // Full heart
-                    : Color.Black; // Empty heart
+                    : new Color(20,20,20); // Empty heart
                 target.Draw(heart);
-                heart.Position += new Vector2f(heart.GetGlobalBounds().Width, 0);
+                heart.Position -= new Vector2f(heart.GetGlobalBounds().Width, 0);
             }
             scoreText.DisplayedString = $"Score: {score}";
             target.Draw(scoreText);

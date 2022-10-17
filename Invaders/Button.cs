@@ -10,8 +10,8 @@ namespace Invaders
 {
     public class Button : Entity
     {
-        private readonly Color FocusedColor = Color.Cyan;
-        private readonly Color UnFocusedColor = Color.White;
+        private readonly Color FocusedColor = Color.White;
+        private readonly Color UnFocusedColor = new Color(150, 150, 150);
         private const string Font = "kenvector_future";
         private Text text = new Text();
         private Action clickAction;
@@ -37,7 +37,7 @@ namespace Invaders
             }
         }
         
-        public Button(string buttonText, Action clickAction) : base("UISheet")
+        public Button(string buttonText, Action clickAction) : base("spriteSheet")
         {
             text.DisplayedString = buttonText;
             this.clickAction = clickAction;

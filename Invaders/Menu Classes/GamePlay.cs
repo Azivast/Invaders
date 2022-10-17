@@ -31,9 +31,8 @@ namespace Invaders
             Spawn(new EnemySpawner());
         }
 
-        private void GameOver() // TODO: This gets called twice???
+        private void GameOver()
         {
-            Console.WriteLine("\nGameOver() in GamePlay.cs called\n");
             Clear();
             Events.PublishChangeScene("GameOver");
         }

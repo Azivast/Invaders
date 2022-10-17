@@ -16,8 +16,6 @@ namespace Invaders
                 window.SetView(new View(ViewSize));
                 window.Closed += (o, e) => window.Close();
                 MouseHelper.Window = window;
-
-                // TODO: Initialize
                 Clock clock = new Clock();
                 SceneManager sceneManager = new SceneManager(window);
 
@@ -26,7 +24,8 @@ namespace Invaders
                     window.DispatchEvents();
 
                     // Update
-                    float deltaTime = clock.Restart().AsSeconds(); // TODO: Clamp delta to prevent collision clipping?
+                    float deltaTime = clock.Restart().AsSeconds(); 
+                    deltaTime = MathF.Min(deltaTime, 0.01f); // Clamped to prevent collision failing under heavy lag
                     MouseHelper.Update();
                     sceneManager.Update(deltaTime);
 

@@ -85,7 +85,7 @@ namespace Invaders
             SaveData data = LoadData(file);
 
 
-            // Sorting algorithm. TODO: Read up on sorting algorithms. This is bubble sort?
+            // Sorting algorithm.
             int scoreIndex = -1;
             for (int i = 0; i < data.Count; i++)
             {

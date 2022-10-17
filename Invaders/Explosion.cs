@@ -9,7 +9,7 @@ namespace Invaders
     {
         private readonly Dictionary<int, IntRect> frames;
         private int frameInternal = 1; // Used by CurrentFrame property. Do not access directly
-        private const float timePerFrame = 0.2f;
+        private const float timePerFrame = 0.1f;
         private float frameTimer = timePerFrame;
 
         private int currentFrame
@@ -25,14 +25,15 @@ namespace Invaders
             }
         }
 
-        public Explosion(Vector2f position) : base("explosion")
+        public Explosion(Vector2f position) : base("spriteSheet")
         {
             sprite.Position = position;
             frames = new Dictionary<int, IntRect>
             {
-                {1, new IntRect(0, 0, 103, 103)},
-                {2, new IntRect(103, 0, 103, 103)},
-                {3, new IntRect(206, 0, 103, 103)},
+                {1, new IntRect(472, 0, 126, 126)},
+                {2, new IntRect(600, 0, 126, 126)},
+                {3, new IntRect(727, 0, 126, 126)},
+                {4, new IntRect(854, 0, 126, 126)},
             };
         }
         

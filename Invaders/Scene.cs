@@ -28,7 +28,6 @@ namespace Invaders
 
         public virtual void UpdateAll(float deltaTime)
         {
-            // TODO: Better loops. Maybe use a queue and foreach?
             // Update all entities
             for (int i = entities.Count - 1; i >= 0; i--) // iterate backwards
             {

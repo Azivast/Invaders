@@ -8,18 +8,40 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Button.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/EnemyShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemyShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Explosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Explosion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/ScoreIO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/ScoreIO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/UISheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/darkPurple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/explosion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/assets/textures/spriteSheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/assets/textures/spriteSheet.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/174aa5ac56774782b2029d79172a2e835600/67/0ef678d6/SoundBuffer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dc2e1711ae48c25377a35219da8e74d9e39668dec55cec8cbd485a2b626893de/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/o7/RiderProjects/Invaders/Invaders/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/o7/RiderProjects/Invaders/Invaders/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Invaders/ScoreIO.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2FcRfMzskaQAlYt9S5cTtJCndIA" />
   <component name="ProjectLevelVcsManager">
@@ -81,7 +103,6 @@
       <workItem from="1665660789359" duration="11122000" />
       <workItem from="1665676002110" duration="15836000" />
       <workItem from="1665846168019" duration="5338000" />
-      <workItem from="1665986522064" duration="4239000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>

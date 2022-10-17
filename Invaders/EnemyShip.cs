@@ -20,7 +20,7 @@ namespace Invaders
 
         public override void Create(Scene scene)
         {
-            sprite.TextureRect = new IntRect(222, 0, 103, 84);
+            sprite.TextureRect = new IntRect(224, 0, 102, 84);
             hitBox = new FloatRect(8, 0, 80, 80);
             base.Create(scene);
 

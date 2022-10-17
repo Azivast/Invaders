@@ -11,7 +11,7 @@ namespace Invaders
 {
     public class PlayerShip : Actor
     {
-        private const int Speed = 150;
+        private const int Speed = 200;
         public readonly int MaxHealth = 3;
         private const float ImmortalTime = 3;
         private float immortalTimer = 0;
@@ -25,7 +25,7 @@ namespace Invaders
 
         public override void Create(Scene scene)
         {
-            sprite.TextureRect = new IntRect(212, 941, 98, 83);
+            sprite.TextureRect = new IntRect(327, 0, 104, 82);
             hitBox = new FloatRect(19, 18, 100, 75);
             facing = new Vector2f(0, -1);
             health = MaxHealth;
@@ -88,7 +88,6 @@ namespace Invaders
             Move(deltaTime);
             if (Keyboard.IsKeyPressed(Space)) TryShoot(scene);
             base.Update(scene, deltaTime);
-            Console.WriteLine(HitBox);
         }
         
         protected override void Move(float deltaTime)
