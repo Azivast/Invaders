@@ -15,7 +15,7 @@ namespace Invaders
         private const int HSpacing = 50;
         private const int WSpacing = 100;
 
-        private readonly string file = $"assets/highscore.dat";
+        private readonly string file = $"highscore.dat";
         private SaveData data = new SaveData(10);
 
         public HighScore(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
@@ -76,8 +76,6 @@ namespace Invaders
                     "right",
                     100
                 ));
-                
-                //if (data.Score[i] == 0) break;
             }
         }
     }

@@ -10,10 +10,13 @@ namespace Invaders
 {
     public class Button : Entity
     {
+        private readonly Color FocusedColor = Color.Cyan;
+        private readonly Color UnFocusedColor = Color.White;
         private const string Font = "kenvector_future";
         private Text text = new Text();
         private Action clickAction;
         private bool selected = false;
+        public bool Active = true;
 
         public bool Selected
         {
@@ -21,14 +24,7 @@ namespace Invaders
             set
             {
                 selected = value;
-                sprite.Color = value ? Color.Cyan : Color.Red;
             }
-        }
-
-        public Action Click
-        {
-            get { return clickAction; }
-            set { clickAction = value;  }
         }
 
         public override Vector2f Position
@@ -40,10 +36,17 @@ namespace Invaders
                 text.Position = sprite.Position - new Vector2f(text.GetGlobalBounds().Width/2, text.GetGlobalBounds().Height);
             }
         }
+        
         public Button(string buttonText, Action clickAction) : base("UISheet")
         {
             text.DisplayedString = buttonText;
             this.clickAction = clickAction;
+        }
+        
+        public void Click()
+        {
+            if (Active)
+                clickAction();
         }
 
         public override void Create(Scene scene)
@@ -63,8 +66,12 @@ namespace Invaders
 
         public override void Render(RenderTarget target)
         {
+            if (Active && Selected) sprite.Color = FocusedColor;
+            else sprite.Color = UnFocusedColor;
+            
             base.Render(target);
             target.Draw(text);
+
         }
     }
 }

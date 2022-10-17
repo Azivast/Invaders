@@ -20,7 +20,7 @@ namespace Invaders
             Window = window;
             Events = new EventManager();
             Events.ChangeToScene += ChangeScene;
-            
+
             Scenes = new Dictionary<string, Scene>()
             {
                 {"MainMenu", new MainMenu(this, window)},
@@ -33,8 +33,6 @@ namespace Invaders
 
         private void ChangeScene(string scene)
         {
-            Console.WriteLine("-----start-----");
-            Console.WriteLine(scene + " is the scene to change to \n");
             if (scene.Equals("Quit")) 
                 Window.Close();
             else
@@ -53,7 +51,6 @@ namespace Invaders
                 }
 
             }
-            Console.WriteLine("-----stop------");
         }
         
         // Update

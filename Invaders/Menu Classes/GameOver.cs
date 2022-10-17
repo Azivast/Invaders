@@ -20,6 +20,7 @@ namespace Invaders
             // Continue Button
             buttons.Position = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
             buttons.AddButton(new Button("Continue", NextScene),this);
+            buttons.Buttons[0].Active = false; // will be activated once a name is entered
             
             Events.NewScore += GetScore;
         }
@@ -64,6 +65,11 @@ namespace Invaders
             }
         }
 
+        public override void UpdateAll(float deltaTime)
+        {
+            base.UpdateAll(deltaTime);
+            buttons.Buttons[0].Active = input.Length >= 2; // Disable button if name is less than 2 characters
+        }
 
         public override void RenderAll(RenderTarget target)
         {

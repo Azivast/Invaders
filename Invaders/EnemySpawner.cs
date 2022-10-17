@@ -25,7 +25,7 @@ namespace Invaders
             base.Update(scene, deltaTime);
 
 
-            spawnInterval = Math.Clamp(spawnInterval - deltaTime * 0.1f, SpawnIntervalMin, SpawnIntervalMax);
+            spawnInterval = Math.Clamp(spawnInterval - deltaTime * 0.05f, SpawnIntervalMin, SpawnIntervalMax);
             float speed = (100 + clock.ElapsedTime.AsSeconds());
             speed += speed * SpeedVariation * (float)random.NextDouble(); // randomize speed a bit
             

@@ -49,7 +49,6 @@ namespace Invaders
             
             if (e.Code == Keyboard.Key.Enter)
             {
-                Console.WriteLine(this);
                 Buttons[selectedButtonIndex].Click();
             }
         }
