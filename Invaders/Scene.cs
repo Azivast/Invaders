@@ -73,14 +73,14 @@ namespace Invaders
             return false;
         }
         
-        public IEnumerable<Entity> FindIntersects(FloatRect bounds) 
+        public IEnumerable<Entity> FindIntersects(FloatRect hitbox) 
         {
             int lastEntity = entities.Count - 1;
             for (int i = lastEntity; i >= 0; i--) // Iterates backwards so as to not break loop when removing entries.
             {
                 Entity entity = entities[i];
                 if (entity.IsDead) continue;
-                if (entity.Bounds.Intersects(bounds)) 
+                if (entity.HitBox.Intersects(hitbox)) 
                 {
                     yield return entity;
                 }

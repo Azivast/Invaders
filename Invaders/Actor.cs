@@ -17,6 +17,20 @@ namespace Invaders
         
         protected Vector2f facing;
         
+        
+        protected FloatRect hitBox;
+        public override FloatRect HitBox
+        {
+            get
+            {
+                return new FloatRect(
+                    Position.X - sprite.Origin.X + hitBox.Left,
+                    Position.Y - sprite.Origin.Y + hitBox.Top,
+                    hitBox.Width,
+                    hitBox.Height);
+            }
+        }
+
         protected Actor(string textureName) : base(textureName) {}
 
         public override void Create(Scene scene)
@@ -54,11 +68,6 @@ namespace Invaders
                 ReadyToShoot = true;
                 cooldownTimer = ShootCooldown;
             }
-        }
-
-        public override void Render(RenderTarget target)
-        {
-            base.Render(target);
         }
     }
 }

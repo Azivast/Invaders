@@ -10,6 +10,20 @@ namespace Invaders
         private float speed = 200;
         private Actor parent;
         public Actor Parent => parent;
+        
+        
+        private FloatRect hitBox;
+        public override FloatRect HitBox
+        {
+            get
+            {
+                return new FloatRect(
+                    Position.X - sprite.Origin.X + hitBox.Left,
+                    Position.Y - sprite.Origin.Y + hitBox.Top,
+                    hitBox.Width,
+                    hitBox.Height);
+            }
+        }
 
         public Bullet(Actor parent) : base("spriteSheet")
         {
@@ -24,6 +38,7 @@ namespace Invaders
             sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // Rotation as degrees
             Position = position;
             sprite.TextureRect = new IntRect(843, 62, 13, 54);
+            hitBox = new FloatRect(0, 11, 13, 13);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
         }
 

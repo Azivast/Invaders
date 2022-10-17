@@ -26,6 +26,7 @@ namespace Invaders
         public override void Create(Scene scene)
         {
             sprite.TextureRect = new IntRect(212, 941, 98, 83);
+            hitBox = new FloatRect(19, 18, 100, 75);
             facing = new Vector2f(0, -1);
             health = MaxHealth;
             base.Create(scene);
@@ -44,7 +45,6 @@ namespace Invaders
                     scene.Events.LoseHealth -= OnLoseHealth;
                     IsDead = true;
                     scene.Events.PublishGameOver();
-                    Console.WriteLine("PLAYER DEAD");
                 }
                 else
                 {
@@ -88,6 +88,7 @@ namespace Invaders
             Move(deltaTime);
             if (Keyboard.IsKeyPressed(Space)) TryShoot(scene);
             base.Update(scene, deltaTime);
+            Console.WriteLine(HitBox);
         }
         
         protected override void Move(float deltaTime)
