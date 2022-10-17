@@ -13,6 +13,7 @@ namespace Invaders
         private Scene currentScene;
         public readonly EventManager Events;
         public static RenderWindow Window;
+        Background background;
 
         // Constructor
         public SceneManager(RenderWindow window)
@@ -20,7 +21,8 @@ namespace Invaders
             Window = window;
             Events = new EventManager();
             Events.ChangeToScene += ChangeScene;
-
+            background = new Background(window);
+            
             Scenes = new Dictionary<string, Scene>()
             {
                 {"MainMenu", new MainMenu(this, window)},
@@ -57,11 +59,13 @@ namespace Invaders
         public void Update(float deltaTime)
         {
             currentScene.UpdateAll(deltaTime);
+            background.Update(deltaTime);
         }
         
         //Draw
         public void Render(RenderTarget target)
         {
+            background.Render(target);
             currentScene.RenderAll(target);
         }
     }

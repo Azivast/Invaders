@@ -12,7 +12,7 @@ namespace Invaders
     public class PlayerShip : Actor
     {
         private const int Speed = 150;
-        public readonly int MaxHealth = 1;
+        public readonly int MaxHealth = 3;
         private const float ImmortalTime = 3;
         private float immortalTimer = 0;
         private int health;
@@ -61,6 +61,7 @@ namespace Invaders
             scene.Events.LoseHealth -= OnLoseHealth;
             base.Destroy(scene);
         }
+        
 
         protected override void TryShoot(Scene scene)
         {

@@ -4,16 +4,12 @@
     <projectFile>Invaders/Invaders.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Finish name input and menus. Make game replayable.">
+    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Begin work on enemy spawner and improve menus">
       <change afterPath="$PROJECT_DIR$/Invaders/Background.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/ButtonList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/ButtonList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +17,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/174aa5ac56774782b2029d79172a2e835600/67/0ef678d6/SoundBuffer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05d63644173a4317a7366897c774f7b38000/82/da6c88ba/TextEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e68fba52605f4eee88783890392bddfcf800/88/3b118548/FloatRect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/169b4d5145b01e3ef80c9d7293b5cd86e1cbc39/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/214683d227d2b096bdfe39fd79b0eac8116ebb62e9a83d53828c638edaa6f88/XmlSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e251d5bde8e8ac3e249215d28bc45ecca9b5a0/Texture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/52bc2cf76c8edd8fbf2f6123a5a6732293714dff556be412b6ea83ebf654c8/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/85439f6eae98fa347ee1d64e1d66ef769eaa9e98ad0a848cca2f75fdead69/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dc2e1711ae48c25377a35219da8e74d9e39668dec55cec8cbd485a2b626893de/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f53885f4bac68f6cf55723ae7dc01bd6acfb6fe/Mouse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa60121f8597edda05ba1e79c874b7b6527c3a7a58eed18a5e6266beec5bea/FileStream.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Invaders/ScoreIO.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -85,8 +90,8 @@
       <workItem from="1665494414563" duration="10682000" />
       <workItem from="1665567840453" duration="19685000" />
       <workItem from="1665660789359" duration="11122000" />
-      <workItem from="1665676002110" duration="16154000" />
-      <workItem from="1665744625476" duration="4745000" />
+      <workItem from="1665676002110" duration="15836000" />
+      <workItem from="1665846168019" duration="5338000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>
@@ -107,14 +112,7 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1665587651753</updated>
     </task>
-    <task id="LOCAL-00004" summary="Finish name input and menus. Make game replayable.">
-      <created>1665692953301</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1665692953301</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,12 +136,12 @@
     <MESSAGE value="Couple stats class with playership." />
     <MESSAGE value="Begin work on menu system" />
     <MESSAGE value="Fix menus, high score, and begin work on name input." />
-    <MESSAGE value="Finish name input and menus. Make game replayable." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish name input and menus. Make game replayable." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix menus, high score, and begin work on name input." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#Invaders.SceneManager" memberName="currentScene" />
         <PinnedItemInfo parentTag="Type#Invaders.Entity" memberName="IsDead" />
       </pinned-members>
     </pin-to-top-manager>
