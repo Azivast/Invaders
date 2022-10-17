@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Diagnostics;
+using System.Reflection.Metadata;
 using SFML.Graphics;
 using SFML.System;
 
@@ -17,7 +18,7 @@ namespace Invaders
         }
 
         public virtual FloatRect Bounds => sprite.GetGlobalBounds();
-
+        public virtual FloatRect HitBox => Bounds;
         protected Entity(string textureName)
         {
             this.textureName = textureName;
@@ -40,7 +41,7 @@ namespace Invaders
 
         public virtual void Update(Scene scene, float deltaTime)
         {
-            foreach (Entity found in scene.FindIntersects(Bounds))
+            foreach (Entity found in scene.FindIntersects(HitBox))
             {
                 CollideWithEntity(scene, found);
             }
