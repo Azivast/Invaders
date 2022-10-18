@@ -12,6 +12,18 @@ namespace Invaders
         private const double FiringFrequency = 0.0005f;
         protected override float ShootCooldown { get; } = 1.5f;
         private Random random;
+        public override FloatRect Bounds
+        {
+            get
+            {
+                var bounds = base.Bounds;
+                bounds.Left += 8;
+                bounds.Top += 0;
+                bounds.Width = 80;
+                bounds.Height = 80;
+                return bounds;
+            }
+        }
 
         public EnemyShip(float speed) : base("spriteSheet")
         {
@@ -21,16 +33,16 @@ namespace Invaders
         public override void Create(Scene scene)
         {
             sprite.TextureRect = new IntRect(224, 0, 102, 84);
-            hitBox = new FloatRect(8, 0, 80, 80);
             base.Create(scene);
 
             random = new Random();
             Position = new Vector2f(
                 random.Next((int)Bounds.Width, (int)(Program.ViewSize.Width - Bounds.Width)), // rand starting pos
-                    0 - Bounds.Height);
-            facing.X = random.Next(0, 2) * 2 - 1; // 0*2-1 = -1 or 1*2-1 = 1
-            facing.Y = 1;
-            facing = facing / MathF.Sqrt(facing.X * facing.X + facing.Y * facing.Y); // normalize
+                0 - Bounds.Height
+                );
+            Facing.X = random.Next(0, 2) * 2 - 1; // 0*2-1 = -1 or 1*2-1 = 1
+            Facing.Y = 1;
+            Facing = Facing / MathF.Sqrt(Facing.X * Facing.X + Facing.Y * Facing.Y); // normalize
         }
         
         public void Kill(Scene scene)
@@ -39,31 +51,29 @@ namespace Invaders
             scene.Spawn(new Explosion(Position));
         }
 
-        
         protected override void Move(float deltaTime)
         {
             // Mirror X direction when hitting a wall
             if (Bounds.Left <= Program.ViewSize.Left)
             {
-                facing.X = Math.Abs(facing.X);
+                Facing.X = Math.Abs(Facing.X);
             }
             else if (Bounds.Left + Bounds.Width >= Program.ViewSize.Width)
             {
-                facing.X = Math.Abs(facing.X)*-1;
+                Facing.X = Math.Abs(Facing.X)*-1;
             }
             
             // Teleport to top of screen if at bottom 
-            if (Position.Y >= Program.ViewSize.Height)
-                Position = new Vector2f(Position.X, Program.ViewSize.Top);
+            if (Position.Y >= Program.ViewSize.Height + Bounds.Height)
+                Position = new Vector2f(Position.X, Program.ViewSize.Top - Bounds.Height);
             
             // Move
-            Position += facing * Speed * deltaTime;
+            Position += Facing * Speed * deltaTime;
         }
         
         protected override void CollideWithEntity(Scene scene, Entity e)
         {
-            if (e is not PlayerShip) return;
-            
+            if (e is not PlayerShip) return; // Only handles collision with player
             scene.Events.PublishLooseHealth(1);
             Kill(scene);
         }
@@ -74,7 +84,7 @@ namespace Invaders
             Move(deltaTime);
             
             // Rotate
-            float newRotation = MathF.Atan2(-facing.X, facing.Y) * 180 / MathF.PI; // Rotation as degrees
+            float newRotation = MathF.Atan2(-Facing.X, Facing.Y) * 180 / MathF.PI; // Rotation as degrees
             sprite.Rotation = newRotation; // rotate sprite in direction
             
             // Shoot

@@ -9,10 +9,10 @@ namespace Invaders
     {
         private readonly Dictionary<int, IntRect> frames;
         private int frameInternal = 1; // Used by CurrentFrame property. Do not access directly
-        private const float timePerFrame = 0.1f;
-        private float frameTimer = timePerFrame;
+        private const float TimePerFrame = 0.1f;
+        private float frameTimer = TimePerFrame;
 
-        private int currentFrame
+        private int CurrentFrame
         {
             get { return frameInternal; }
             set
@@ -29,7 +29,7 @@ namespace Invaders
         {
             sprite.Position = position;
             frames = new Dictionary<int, IntRect>
-            {
+            {   // Rects of each frame in the sprite sheet
                 {1, new IntRect(472, 0, 126, 126)},
                 {2, new IntRect(600, 0, 126, 126)},
                 {3, new IntRect(727, 0, 126, 126)},
@@ -42,7 +42,6 @@ namespace Invaders
             frames.TryGetValue(1, out IntRect frame);
             sprite.TextureRect = frame;
             sprite.Origin = new Vector2f(frame.Width/2, frame.Height/2);
-            
             base.Create(scene);
         }
 
@@ -54,13 +53,15 @@ namespace Invaders
 
         private void Animate(float deltaTime)
         {
-            frameTimer = MathF.Max(frameTimer -= deltaTime, 0); // count timer
+            // Count the timer
+            frameTimer = MathF.Max(frameTimer -= deltaTime, 0);
 
+            // Change frame once timer is done
             if (frameTimer == 0)
             {
-                frameTimer = timePerFrame; // reset timer
-                currentFrame++;
-                frames.TryGetValue(currentFrame, out IntRect newFrame);
+                frameTimer = TimePerFrame; // reset timer
+                CurrentFrame++;
+                frames.TryGetValue(CurrentFrame, out IntRect newFrame);
                 sprite.TextureRect = newFrame;
             }
         }

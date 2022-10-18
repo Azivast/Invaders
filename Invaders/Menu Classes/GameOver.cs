@@ -15,7 +15,7 @@ namespace Invaders
         private string input;
         private int currentScore;
 
-        public GameOver(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
+        public GameOver(SceneManager sceneManager, RenderWindow window) : base(sceneManager)
         {
             // Continue Button
             buttons.Position = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
@@ -51,14 +51,14 @@ namespace Invaders
         
         private void TextEntered(object s, EventArgs e)
         {
-            if (e is not TextEventArgs eventArgs) return;
+            if (e is not TextEventArgs eventArgs) return; // do nothing if event is not keyboard input
             
             if ((char.IsLetter(eventArgs.Unicode[0]) || char.IsNumber(eventArgs.Unicode[0])) && input.Length <= 16) // add if nr or letter
                 input += eventArgs.Unicode;
 
             else if (eventArgs.Unicode.Equals("\b")) // remove if backspace
             {
-                if (input.Length > 0)
+                if (input.Length > 0) // (only if there is a character to remove)
                 {
                     input = input.Remove(input.Length - 1);
                 }
@@ -68,7 +68,7 @@ namespace Invaders
         public override void UpdateAll(float deltaTime)
         {
             base.UpdateAll(deltaTime);
-            buttons.Buttons[0].Active = input.Length >= 2; // Disable button if name is less than 2 characters
+            buttons.Buttons[0].Active = input.Length >= 2; // disable button if name is less than 2 characters
         }
 
         public override void RenderAll(RenderTarget target)
@@ -76,15 +76,13 @@ namespace Invaders
             base.RenderAll(target);
 
             target.Draw(DrawText(
-                $"Total Score: {currentScore}", 
-                text, 
+                $"Total Score: {currentScore}",
                 new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
                 "middle",
                 -text.GetGlobalBounds().Height
             ));
             target.Draw(DrawText(
-                $"Enter Name: {input}", 
-                text, 
+                $"Enter Name: {input}",
                 new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
                 "middle",
                 +text.GetGlobalBounds().Height

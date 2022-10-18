@@ -10,7 +10,7 @@ namespace Invaders
 {
     public class MainMenu : Menu
     {
-        public MainMenu(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
+        public MainMenu(SceneManager sceneManager, RenderWindow window) : base(sceneManager)
         {
             buttons.AddButton(new Button("Play", () => Events.PublishChangeScene("GamePlay")), this);
             buttons.AddButton(new Button("High Score", () => Events.PublishChangeScene("HighScore")),this);
@@ -23,8 +23,7 @@ namespace Invaders
         {
             base.RenderAll(target);
             target.Draw(DrawText(
-                "INVADERS", 
-                text, 
+                "INVADERS",
                 new Vector2f(Program.ViewSize.Width / 2, 150),
                 "middle"
                 ));

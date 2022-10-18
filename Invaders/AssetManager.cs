@@ -6,11 +6,9 @@ namespace Invaders
 {
     public class AssetManager
     {
-        public static readonly string AssetPath = "assets";
         private readonly Dictionary<string, Texture> textures;
         private readonly Dictionary<string, Font> fonts;
         private readonly Dictionary<string, SoundBuffer> sounds;
-
 
         public AssetManager()
         {
@@ -25,7 +23,6 @@ namespace Invaders
             if (textures.TryGetValue(name, out Texture found)) 
                 return found;
 
-            
             // Otherwise load it and return.
             string fileName = $"assets/textures/{name}.png";
             Texture texture = new Texture(fileName);
@@ -39,7 +36,6 @@ namespace Invaders
             // Return font if it's already loaded.
             if (fonts.TryGetValue(pixelFont, out Font found)) 
                 return found;
-
             
             // Otherwise load it and return.
             string fileName = $"assets/fonts/{pixelFont}.ttf";
@@ -54,7 +50,6 @@ namespace Invaders
             // Return font if it's already loaded.
             if (sounds.TryGetValue(sound, out SoundBuffer found)) 
                 return found;
-
             
             // Otherwise load it and return.
             string fileName = $"assets/sounds/{sound}.ogg";
@@ -62,6 +57,15 @@ namespace Invaders
             sounds.Add(sound, buffer);
 
             return buffer;
+        }
+
+        public void DisposeSounds()
+        {
+            foreach (SoundBuffer buffer in sounds.Values)
+            {
+                buffer.Dispose();
+                sounds.Clear();
+            }
         }
     }
 }

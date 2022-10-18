@@ -16,7 +16,6 @@ namespace Invaders
         public event ValueChangedEvent NewScore;
         public event ChangeSceneEvent ChangeToScene;
         public event GameOverEvent GameOver;
-
         
         private int newScore;
         private int healthLost;

@@ -9,10 +9,8 @@ namespace Invaders
         protected readonly List<Entity> entities;
         public readonly AssetManager Assets;
         private SceneManager sceneManager;
-
-        public EventManager Events => sceneManager.Events;
-
-
+        public EventManager Events => sceneManager.Events; // Children need access to events but should not touch anything else in the sceneManager
+        
         public Scene(SceneManager sceneManager)
         {
             entities = new List<Entity>();
@@ -79,7 +77,7 @@ namespace Invaders
             {
                 Entity entity = entities[i];
                 if (entity.IsDead) continue;
-                if (entity.HitBox.Intersects(hitbox)) 
+                if (entity.Bounds.Intersects(hitbox)) 
                 {
                     yield return entity;
                 }

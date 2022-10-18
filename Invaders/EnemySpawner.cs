@@ -7,11 +7,12 @@ namespace Invaders
     {
         private Clock clock;
         private const float SpawnIntervalMax = 3;
-        private const float SpawnIntervalMin = 0.3f;
+        private const float SpawnIntervalMin = 0.4f;
         private const float SpeedVariation = 0.2f;
+        private const float MaxSpeed = 300;
         private float spawnInterval = SpawnIntervalMax;
         private float spawnTimer;
-        private Random random = new Random();
+        private readonly Random random = new Random();
 
         public override void Create(Scene scene)
         {
@@ -23,12 +24,15 @@ namespace Invaders
         public override void Update(Scene scene, float deltaTime)
         {
             base.Update(scene, deltaTime);
-
-
-            spawnInterval = Math.Clamp(spawnInterval - deltaTime * 0.05f, SpawnIntervalMin, SpawnIntervalMax);
-            float speed = (100 + clock.ElapsedTime.AsSeconds());
-            speed += speed * SpeedVariation * (float)random.NextDouble(); // randomize speed a bit
             
+            // Count timer
+            spawnInterval = Math.Clamp(spawnInterval - deltaTime * 0.05f, SpawnIntervalMin, SpawnIntervalMax);
+            
+            // Determine speed of new ship
+            float speed = Math.Max((200 + clock.ElapsedTime.AsSeconds()), MaxSpeed); // cap the speed
+            speed += speed * SpeedVariation * (float)random.NextDouble(); // randomize it a bit
+            
+            // Spawn if timer is ready
             spawnTimer += deltaTime;
             if (spawnTimer >= spawnInterval)
             {

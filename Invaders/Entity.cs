@@ -7,26 +7,24 @@ namespace Invaders
 {
     public abstract class Entity
     {
-        private string textureName = "";
+        private readonly string textureName = "blank"; // set by children that need a texture
         protected Sprite sprite;
         public bool IsDead = false;
-
         public virtual Vector2f Position
         {
             get => sprite.Position;
             set => sprite.Position = value;
         }
-
         public virtual FloatRect Bounds => sprite.GetGlobalBounds();
-        public virtual FloatRect HitBox => Bounds;
+
         protected Entity(string textureName)
         {
             this.textureName = textureName;
             sprite = new Sprite();
         }
-        protected Entity() // Entities with no need for sprite receive a blank texture
+        
+        protected Entity() 
         {
-            this.textureName = "blank";
             sprite = new Sprite();
         }
 
@@ -41,7 +39,7 @@ namespace Invaders
 
         public virtual void Update(Scene scene, float deltaTime)
         {
-            foreach (Entity found in scene.FindIntersects(HitBox))
+            foreach (Entity found in scene.FindIntersects(Bounds))
             {
                 CollideWithEntity(scene, found);
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using SFML.Graphics;
@@ -18,7 +19,7 @@ namespace Invaders
         private readonly string file = $"highscore.dat";
         private SaveData data = new SaveData(10);
 
-        public HighScore(SceneManager sceneManager, RenderWindow window) : base(sceneManager, window)
+        public HighScore(SceneManager sceneManager, RenderWindow window) : base(sceneManager)
         {
             // Back Button
             buttons.Position = new(Program.ViewSize.Width / 2, Program.ViewSize.Height - 100);
@@ -38,14 +39,13 @@ namespace Invaders
         {
             SaveAndSortHighScore(file, score, name);
         }
-
+        
         public override void RenderAll(RenderTarget target)
         {
             base.RenderAll(target);
 
             target.Draw(DrawText(
                 "High Score",
-                text,
                 new Vector2f(Program.ViewSize.Width/2, 0),
                 "middle",
                 WSpacing / 2
@@ -54,23 +54,20 @@ namespace Invaders
             // Draw Score list
             for (int i = 0; i <= data.Count-1; i++)
             {
-                target.Draw(DrawText(
+                target.Draw(DrawText( // place
                     $"{i+1}:",
-                    text,
                     new Vector2f(Program.ViewSize.Left + WSpacing, HSpacing * i),
                     "left",
                     100
                     ));
-                target.Draw(DrawText(
+                target.Draw(DrawText( // name
                     $"{data.PlayerName[i]}",
-                    text,
                     new Vector2f(Program.ViewSize.Left + WSpacing + 50, HSpacing * i),
                     "left",
                     100
                 ));
-                target.Draw(DrawText(
+                target.Draw(DrawText( // score
                     $"{data.Score[i]}",
-                    text,
                     new Vector2f(Program.ViewSize.Width - 50, HSpacing * i),
                     "right",
                     100

@@ -8,16 +8,14 @@ namespace Invaders
     public class Stats
     {
         private const string Font = "kenvector_future";
-        
-        private int score = 0;
-        private Text scoreText = new Text();
-        private float gameTime = 0;
-        private Clock clock = new Clock();
-        private Sprite heart = new Sprite();
-        
         private readonly PlayerShip playerShip;
         private readonly Scene scene;
         
+        private Text scoreText = new Text();
+        private Clock clock = new Clock();
+        private Sprite heart = new Sprite();
+        
+        private int score = 0;
         public int Score => score;
 
         public Stats(PlayerShip playerShip, Scene scene)
@@ -25,6 +23,10 @@ namespace Invaders
             this.scene = scene;
             this.playerShip = playerShip;
             
+            clock.Restart();
+            scene.Events.GameOver += () => scene.Events.PublishNewScore(score);
+            
+            // Set up the texts
             heart.Texture = scene.Assets.LoadTexture("spriteSheet");
             heart.TextureRect = new IntRect(327, 0, 104, 82);
             heart.Rotation = 45;
@@ -39,10 +41,6 @@ namespace Invaders
                 Program.ViewSize.Left+10,
                 Program.ViewSize.Top
             );
-
-            clock.Restart();
-
-            scene.Events.GameOver += () => scene.Events.PublishNewScore(score);
         }
 
         public void Update(EventManager events)
@@ -59,7 +57,7 @@ namespace Invaders
             heart.Position = new Vector2f(
                 Program.ViewSize.Width - heart.GetGlobalBounds().Width/2 - 10, 
                 Program.ViewSize.Top);
-            for (int i = 0; i < playerShip.MaxHealth; i++) // Render all hearts
+            for (int i = 0; i < playerShip.MaxHealth; i++) // for all hearts
             {
                 heart.Color = i < playerShip.Health
                     ? Color.White // Full heart
@@ -67,7 +65,10 @@ namespace Invaders
                 target.Draw(heart);
                 heart.Position -= new Vector2f(heart.GetGlobalBounds().Width, 0);
             }
-            scoreText.DisplayedString = $"Score: {score}";
+            
+            // Draw score
+            string scoreString = $"Score: {score}";
+            scoreText.DisplayedString = scoreString;
             target.Draw(scoreText);
         }
     }

@@ -13,7 +13,6 @@ namespace Invaders
 
         public GamePlay(SceneManager sceneManager) : base(sceneManager)
         {
-            // Events
             Events.GameOver += GameOver;
         }
 
@@ -29,6 +28,12 @@ namespace Invaders
             
             // Add an enemy spawner
             Spawn(new EnemySpawner());
+        }
+
+        public override void UnLoadScene(RenderWindow window)
+        {
+            base.UnLoadScene(window);
+            Assets.DisposeSounds();
         }
 
         private void GameOver()

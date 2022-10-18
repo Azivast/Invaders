@@ -8,51 +8,44 @@ namespace Invaders
 {
     public abstract class Actor : Entity
     {
-        public float Speed = 200;
+        public float Speed;
+        protected Vector2f Facing;
         protected virtual float ShootCooldown { get; } = 0.5f; // property so that it can be overriden in children
-        public bool ReadyToShoot;
-        protected float cooldownTimer;
+        protected bool ReadyToShoot;
+        protected float CooldownTimer;
         private SoundBuffer laserBuffer;
-        protected Sound laserSound;
-        
-        protected Vector2f facing;
-        
-        
-        protected FloatRect hitBox;
-        public override FloatRect HitBox
-        {
-            get
-            {
-                return new FloatRect(
-                    Position.X - sprite.Origin.X + hitBox.Left,
-                    Position.Y - sprite.Origin.Y + hitBox.Top,
-                    hitBox.Width,
-                    hitBox.Height);
-            }
-        }
+        protected Sound LaserSound;
 
         protected Actor(string textureName) : base(textureName) {}
 
         public override void Create(Scene scene)
         {
             base.Create(scene);
-            cooldownTimer = ShootCooldown;
+            CooldownTimer = ShootCooldown;
             sprite.Origin = new Vector2f(sprite.TextureRect.Width/2, sprite.TextureRect.Height / 2);
             laserBuffer = new SoundBuffer(scene.Assets.LoadSoundBuffer("sfx_laser1"));
-            laserSound = new Sound(laserBuffer);
+            LaserSound = new Sound(laserBuffer);
         }
+
+        public override void Destroy(Scene scene)
+        {
+            LaserSound.Dispose();
+            laserBuffer.Dispose();
+        } 
 
         protected virtual void TryShoot(Scene scene)
         {
             if (!ReadyToShoot) return;
             
-            cooldownTimer = ShootCooldown;
+            // Start cooldown
+            CooldownTimer = ShootCooldown;
             ReadyToShoot = false;
             
+            // Spawn bullet & play sound
             Bullet bullet = new Bullet(this);
-            bullet.Create(Position, facing, scene);
+            bullet.Create(Position, Facing, scene);
             scene.Spawn(bullet);
-            laserSound.Play(); 
+            LaserSound.Play(); 
         }
         
         protected virtual void Move(float deltaTime) {}
@@ -63,11 +56,11 @@ namespace Invaders
             
             // Update shooting cooldown timer
             if (!ReadyToShoot)
-                cooldownTimer -= deltaTime;
-            if (cooldownTimer <= 0)
+                CooldownTimer -= deltaTime;
+            if (CooldownTimer <= 0) // cooldown over
             {
                 ReadyToShoot = true;
-                cooldownTimer = ShootCooldown;
+                CooldownTimer = ShootCooldown;
             }
         }
     }

@@ -10,26 +10,20 @@ namespace Invaders
 {
     public class Button : Entity
     {
-        private readonly Color FocusedColor = Color.White;
-        private readonly Color UnFocusedColor = new Color(150, 150, 150);
+        private readonly Color SelectedColor = Color.White;
+        private readonly Color UnSelectedColor = new Color(150, 150, 150);
         private const string Font = "kenvector_future";
-        private Text text = new Text();
-        private Action clickAction;
-        private bool selected = false;
+        private readonly Text text = new Text();
+        private readonly Action clickAction;
+        public bool Selected = false;
         public bool Active = true;
-
-        public bool Selected
-        {
-            get { return selected; }
-            set
-            {
-                selected = value;
-            }
-        }
 
         public override Vector2f Position
         {
-            get { return sprite.Position; }
+            get
+            {
+                return sprite.Position;
+            }
             set
             {
                 sprite.Position = value;
@@ -66,8 +60,8 @@ namespace Invaders
 
         public override void Render(RenderTarget target)
         {
-            if (Active && Selected) sprite.Color = FocusedColor;
-            else sprite.Color = UnFocusedColor;
+            if (Active && Selected) sprite.Color = SelectedColor;
+            else sprite.Color = UnSelectedColor;
             
             base.Render(target);
             target.Draw(text);

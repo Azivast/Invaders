@@ -6,7 +6,7 @@ namespace Invaders
 {
     /// <summary>
     ///  Class that handles IO operations for score.
-    ///  This class uses large amounts of code from an old project written by me, Olle Astré, in 2018.
+    ///  This class uses large amounts of code from an old project written by me, Olle Astré ("Azivast"), in 2018.
     ///  Said project can be found here: https://github.com/Azivast/Highscore-Sorter.
     /// </summary>
     public class ScoreIO
@@ -85,8 +85,9 @@ namespace Invaders
             SaveData data = LoadData(file);
 
 
-            // Sorting algorithm.
+            // ----Sorting algorithm----
             int scoreIndex = -1;
+            // Find the index at which to insert new score
             for (int i = 0; i < data.Count; i++)
             {
                 if (score > data.Score[i])
@@ -95,19 +96,18 @@ namespace Invaders
                     break;
                 }
             }
-
-            if (scoreIndex > -1)
+            if (scoreIndex > -1) // as long as new score should be on the high score list
             {
-                // New high score found ... do swaps.
+                // Move all lower scores one step down in the array
                 for (int i = data.Count - 1; i > scoreIndex; i--)
                 {
                     data.Score[i] = data.Score[i - 1];
                     data.PlayerName[i] = data.PlayerName[i - 1];
                 }
-
+                // Insert the new score
                 data.Score[scoreIndex] = score;
                 data.PlayerName[scoreIndex] = name;
-
+                // Save to file
                 DoSave(data, file);
             }
         }

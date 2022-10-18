@@ -3,6 +3,11 @@ using SFML.Window;
 
 namespace Invaders
 {
+    /// <summary>
+    /// Class that adds some functionality to the mouse.
+    /// MouseJustPressed is a bool that returns true only the first frame that the button is pressed.
+    /// MouseHitBox gives a 1x1 rect at the cursor position for collision with the mouse.
+    /// </summary>
     public static class MouseHelper
     {
         public static RenderWindow Window;
@@ -23,7 +28,6 @@ namespace Invaders
         {
             // We only want to check the same frame the mouse button is pressed.
             // Otherwise a button press in one scene might trigger a press in a new scene upon scene change.
-
             if (Mouse.IsButtonPressed(Mouse.Button.Left))
                 pressedThisFrame = true;
             else
@@ -33,8 +37,7 @@ namespace Invaders
                 mouseJustPressed = true;
             else
                 mouseJustPressed = false;
-
-
+            
             
             if (!pressedThisFrame)
             {

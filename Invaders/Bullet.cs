@@ -7,45 +7,45 @@ namespace Invaders
     public class Bullet : Entity
     {
         private Vector2f direction;
-        private float speed = 200;
-        private Actor parent;
-        public Actor Parent => parent;
-        
-        
-        private FloatRect hitBox;
-        public override FloatRect HitBox
+        private readonly float speed = 200;
+        private readonly Actor parent;
+
+        private FloatRect hitBoxLocalBounds;
+        public override FloatRect Bounds
         {
             get
             {
-                return new FloatRect(
-                    Position.X - sprite.Origin.X + hitBox.Left,
-                    Position.Y - sprite.Origin.Y + hitBox.Top,
-                    hitBox.Width,
-                    hitBox.Height);
+                var bounds = base.Bounds;
+                bounds.Left += 0;
+                bounds.Top += 11;
+                bounds.Width = 13;
+                bounds.Height = 13;
+                return bounds;
             }
         }
 
         public Bullet(Actor parent) : base("spriteSheet")
         {
             this.parent = parent;
-            this.speed += parent.Speed;
+            speed += parent.Speed; // speed is also inherited from parent
         }
 
-        public void Create(Vector2f position, Vector2f direction, Scene scene) // no need for override since we are overloading
+        public void Create(Vector2f position, Vector2f direction, Scene scene)
         {
             base.Create(scene);
             this.direction = direction;
-            sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // Rotation as degrees
+            sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // rotation as degrees
             Position = position;
             sprite.TextureRect = new IntRect(438, 16, 13, 54);
-            hitBox = new FloatRect(0, 11, 13, 13);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
         }
 
         public override void Update(Scene scene, float deltaTime)
         {
+            // Move
             Position += direction * speed * deltaTime;
 ;
+            // Remove once outside window
             if (!Program.ViewSize.Contains(Position.X, Position.Y))
                 IsDead = true;
                 
@@ -54,9 +54,11 @@ namespace Invaders
 
         protected override void CollideWithEntity(Scene scene, Entity e)
         {
+            // Do nothing if bullet collides with ship of same type, ie player or enemy.
             if (parent is EnemyShip && e is EnemyShip) return;
             if (parent is PlayerShip && e is PlayerShip) return;
 
+            // Otherwise kill ship (implementation dependent on type)
             if (e is PlayerShip)
             {
                 scene.Events.PublishLooseHealth(1);

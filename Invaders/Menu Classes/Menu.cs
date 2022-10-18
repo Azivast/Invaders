@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using SFML.Graphics;
+﻿using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 namespace Invaders
 {
@@ -12,7 +9,7 @@ namespace Invaders
         protected ButtonList buttons;
         protected Text text;
 
-        public Menu(SceneManager sceneManager, RenderWindow window) : base(sceneManager)
+        public Menu(SceneManager sceneManager) : base(sceneManager)
         {
             buttons = new ButtonList();
             buttons.Position = new Vector2f(Program.ViewSize.Width / 2, Program.ViewSize.Height/2 - 100);
@@ -44,7 +41,7 @@ namespace Invaders
         }
 
         // Used to draw and align multiple strings using the same Text variable.
-        protected Text DrawText(string displayedString, Text text, Vector2f position, string align = "left", float yOffset = 0)
+        protected Text DrawText(string displayedString, Vector2f position, string align = "left", float yOffset = 0)
         {
             text.DisplayedString = displayedString;
             switch (align.ToLower())

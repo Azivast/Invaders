@@ -19,10 +19,11 @@ namespace Invaders
         public SceneManager(RenderWindow window)
         {
             Window = window;
+            background = new Background(window);
             Events = new EventManager();
             Events.ChangeToScene += ChangeScene;
-            background = new Background(window);
-            
+
+            // Available scenes
             Scenes = new Dictionary<string, Scene>()
             {
                 {"MainMenu", new MainMenu(this, window)},
@@ -41,17 +42,18 @@ namespace Invaders
             {
                 foreach (var item in Scenes)
                 {
+                    // Load the new scene
                     if (item.Key.Equals(scene))
                     {
                         item.Value.LoadScene(Window);
                         Scenes.TryGetValue(scene, out currentScene);
                     }
+                    // Unload the other ones
                     else
                     {
                         item.Value.UnLoadScene(Window);
                     }
                 }
-
             }
         }
         
