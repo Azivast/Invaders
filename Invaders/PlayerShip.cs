@@ -124,15 +124,15 @@ namespace Invaders
             newPos.X = Math.Clamp
             (
                 newPos.X, 
-                Program.ViewSize.Left + Bounds.Width/2,
-                Program.ViewSize.Left + Program.ViewSize.Width - Bounds.Width/2
+                Program.ViewSize.Left + sprite.GetGlobalBounds().Width/2,
+                Program.ViewSize.Left + Program.ViewSize.Width - sprite.GetGlobalBounds().Width/2
             );
             
             newPos.Y = Math.Clamp
             (
                 newPos.Y, 
-                Program.ViewSize.Top + Bounds.Height/2, 
-                Program.ViewSize.Top + Program.ViewSize.Height - Bounds.Height/2
+                Program.ViewSize.Top + sprite.GetGlobalBounds().Height/2, 
+                Program.ViewSize.Top + Program.ViewSize.Height - sprite.GetGlobalBounds().Height/2
             );
 
             

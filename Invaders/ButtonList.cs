@@ -49,7 +49,7 @@ namespace Invaders
             else if (selectedButtonIndex > Buttons.Count - 1) selectedButtonIndex = 0;
             
             // Click with enter
-            if (e.Code is Keyboard.Key.Enter or Keyboard.Key.Space)
+            if (e.Code is Keyboard.Key.Enter)
             {
                 Buttons[selectedButtonIndex].Click();
             }
