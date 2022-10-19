@@ -4,32 +4,9 @@
     <projectFile>Invaders/Invaders.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Begin work on enemy spawner and improve menus">
+    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Remove unused sound files">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Actor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Invaders/AssetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/AssetManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Background.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/ButtonList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/ButtonList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/EnemyShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemyShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/EventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Explosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Explosion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GameOver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/GamePlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/HighScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Menu Classes/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Menu Classes/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/MouseHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/MouseHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Scene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/SceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/ScoreIO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/ScoreIO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Stats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/TODO.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +90,7 @@
       <workItem from="1665660789359" duration="11122000" />
       <workItem from="1665676002110" duration="15836000" />
       <workItem from="1665846168019" duration="5338000" />
+      <workItem from="1666181304331" duration="675000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>
@@ -133,7 +111,19 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1665587651753</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Comments and finishing touches">
+      <created>1666105071013</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1666105071013</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Remove unused sound files">
+      <created>1666105209318</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1666105209318</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +147,9 @@
     <MESSAGE value="Couple stats class with playership." />
     <MESSAGE value="Begin work on menu system" />
     <MESSAGE value="Fix menus, high score, and begin work on name input." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix menus, high score, and begin work on name input." />
+    <MESSAGE value="Comments and finishing touches" />
+    <MESSAGE value="Remove unused sound files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused sound files" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

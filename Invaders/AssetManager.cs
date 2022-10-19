@@ -59,6 +59,7 @@ namespace Invaders
             return buffer;
         }
 
+        // This needs to be called before exiting the program to properly 
         public void DisposeSounds()
         {
             foreach (SoundBuffer buffer in sounds.Values)

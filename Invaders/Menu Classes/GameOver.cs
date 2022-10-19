@@ -82,7 +82,7 @@ namespace Invaders
                 -text.GetGlobalBounds().Height
             ));
             target.Draw(DrawText(
-                $"Enter Name: {input}",
+                $"Enter Your Name: {input}",
                 new Vector2f(Program.ViewSize.Width/2, Program.ViewSize.Height/2), 
                 "middle",
                 +text.GetGlobalBounds().Height
