@@ -29,7 +29,7 @@ namespace Invaders
                     sceneManager.Update(deltaTime);
 
                     // Draw
-                    window.Clear(new Color(50, 50, 60));
+                    window.Clear(new Color(42, 45, 51));
                     sceneManager.Render(window);
                     window.Display();
                 }

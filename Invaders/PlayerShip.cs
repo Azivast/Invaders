@@ -21,10 +21,10 @@ namespace Invaders
             get
             {
                 var bounds = base.Bounds;
-                bounds.Left += 19;
-                bounds.Top += 18;
-                bounds.Width = 100;
-                bounds.Height = 75;
+                bounds.Left += 10;
+                bounds.Top += 12;
+                bounds.Width = 82;
+                bounds.Height = 63;
                 return bounds;
             }
         }

@@ -34,10 +34,10 @@ namespace Invaders
         {
             base.Create(scene);
             this.direction = direction;
-            sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // rotation as degrees
-            Position = position;
             sprite.TextureRect = new IntRect(438, 16, 13, 54);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
+            sprite.Rotation = MathF.Atan2(direction.X, -direction.Y) * 180 / MathF.PI; // rotation as degrees
+            Position = position;
         }
 
         public override void Update(Scene scene, float deltaTime)

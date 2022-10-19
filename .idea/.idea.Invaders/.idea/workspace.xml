@@ -4,9 +4,12 @@
     <projectFile>Invaders/Invaders.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="Remove unused sound files">
+    <list default="true" id="f50f4005-93c6-4a1c-9dae-ebd5bcbe816b" name="Changes" comment="More comments">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Invaders/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Invaders/AssetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/AssetManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/ButtonList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/ButtonList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/PlayerShip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/PlayerShip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Invaders/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +19,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05d63644173a4317a7366897c774f7b38000/82/da6c88ba/TextEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e68fba52605f4eee88783890392bddfcf800/88/3b118548/FloatRect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e68fba52605f4eee88783890392bddfcf800/ea/d1a6978d/RectangleShape.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/169b4d5145b01e3ef80c9d7293b5cd86e1cbc39/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/214683d227d2b096bdfe39fd79b0eac8116ebb62e9a83d53828c638edaa6f88/XmlSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/48e251d5bde8e8ac3e249215d28bc45ecca9b5a0/Texture.cs" root0="SKIP_HIGHLIGHTING" />
@@ -25,6 +29,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dda463584940f5be1d1d2ac9a6d046c5dae04ae5/Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f53885f4bac68f6cf55723ae7dc01bd6acfb6fe/Mouse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa60121f8597edda05ba1e79c874b7b6527c3a7a58eed18a5e6266beec5bea/FileStream.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a22ollas/RiderProjects/Invaders/Invaders/AssetManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a22ollas/RiderProjects/Invaders/Invaders/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Invaders/ScoreIO.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -90,7 +96,7 @@
       <workItem from="1665660789359" duration="11122000" />
       <workItem from="1665676002110" duration="15836000" />
       <workItem from="1665846168019" duration="5338000" />
-      <workItem from="1666181304331" duration="675000" />
+      <workItem from="1666181304331" duration="3400000" />
     </task>
     <task id="LOCAL-00001" summary="Couple stats class with playership.">
       <created>1665418453421</created>
@@ -123,7 +129,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1666105209318</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="More comments">
+      <created>1666182162816</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1666182162816</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +161,8 @@
     <MESSAGE value="Fix menus, high score, and begin work on name input." />
     <MESSAGE value="Comments and finishing touches" />
     <MESSAGE value="Remove unused sound files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused sound files" />
+    <MESSAGE value="More comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="More comments" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
